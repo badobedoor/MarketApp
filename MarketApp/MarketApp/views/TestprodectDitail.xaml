@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"             
+              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+             x:Class="MarketApp.views.TestprodectDitail"
+              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout >
+            <!--Start general grid-->
+            <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                <!--Start background color-->
+                <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".97"/>
+                <!--End background color-->
+
+                <!--Start Content StackLayout-->
+                <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                    <!--Start nav bar StackLayout-->
+
+                    <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}" />
+                        <Label Style="{StaticResource Headerlable}" Text="Home" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  ShopPasktIcon}" HorizontalOptions="End"  FontSize="23" />
+                        <Button Style="{StaticResource FA.Regular.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                    </StackLayout>
+                    <!--End nav bar StackLayout-->
+                    <ScrollView>
+                        <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill">
+                            <!--Start Image Product-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" HeightRequest="413" BackgroundColor="White" Padding="20">
+                                <Image x:Name="imagerrtt"  Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"  HeightRequest="333" />
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center" Margin="0,20,0,0">
+                                    <border:SfBorder x:Name="border_1" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                        <Image  Source="mm_1.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                    </border:SfBorder>
+                                    <border:SfBorder x:Name="border_2" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                        <Image  Source="mm_2.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                    </border:SfBorder>
+                                    <border:SfBorder x:Name="border_3" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                        <Image  Source="mm_3.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                    </border:SfBorder>
+                                    <border:SfBorder x:Name="border_4" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                        <Image  Source="mm_4.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                    </border:SfBorder>
+                                </StackLayout>
+                            </StackLayout>
+                            <!--End Image Product-->
+
+                            <!--Star Prodduct informations-->
+                            <border:SfBorder VerticalOptions="Start" HorizontalOptions="Fill" BorderColor="Gray" BorderWidth="1" BackgroundColor="#E7FCFE" HeightRequest="100"  Margin="0,10,0,10" >
+                                <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10,5">
+                                    <Label Style="{StaticResource Boldlable}" Text="Present Vitae" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="Start" TextColor="{StaticResource graycolor}"/>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Fill">
+                                        <Label Style="{StaticResource listViewPriceLabel}" Text="$ 35.50" HorizontalOptions="StartAndExpand" FontSize="23" />
+                                        <Label Style="{StaticResource listViewPriceLabel}" Text="181" HorizontalOptions="End" FontSize="17" TextColor="Gray" />
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="Gray" WidthRequest="17" HorizontalOptions="End" Margin="0,3,0,0"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="{StaticResource starColor}" WidthRequest="17" HorizontalOptions="End" Margin="0,3,0,0"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="{StaticResource starColor}" WidthRequest="17" HorizontalOptions="End" Margin="0,3,0,0"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="{StaticResource starColor}" WidthRequest="17" HorizontalOptions="End" Margin="0,3,0,0"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="{StaticResource starColor}" WidthRequest="17" HorizontalOptions="End" Margin="0,3,0,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </border:SfBorder>
+                            <!--End Prodduct informations-->
+
+                            <!--Star Description Siction-->
+                            <border:SfBorder VerticalOptions="End" HorizontalOptions="Fill" BorderColor="Gray" BorderWidth="1" BackgroundColor="#E7FCFE"   Padding="10,5">
+                                <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Spacing="10">
+                                    <Label Style="{StaticResource Boldlable}" Text="Description" TextColor="{StaticResource graycolor}" FontSize="23" HorizontalOptions="Start"/>
+                                    <Label Style="{StaticResource Smalllable}"  TextColor="{StaticResource wgraycolor}" HorizontalTextAlignment="Start" LineHeight="0.8" FontSize="17" Text="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"/>
+                                </StackLayout>
+                            </border:SfBorder>
+                            <!--End Description Siction-->
+
+                        </StackLayout>
+                    </ScrollView>
+
+                    <!--Star ADD TO CART Button-->
+                    <StackLayout VerticalOptions="End">
+                        <Button Style="{StaticResource bigButton}" Text="ADD TO CART"/>
+                    </StackLayout>
+                    <!--End ADD TO CART Button-->
+
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+            </Grid>
+            <!--End general grid-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>

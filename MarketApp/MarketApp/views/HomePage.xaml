@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"             
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.HomePage"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="Page"
+             BackgroundColor="{StaticResource PageBackGroundColor}">
+    <!--xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"-->
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout >
+
+                <!--Start Content StackLayout-->
+                <StackLayout Spacing="0" >
+                    <!--Start nav bar StackLayout-->
+                    <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0" HeightRequest="65">
+                        <Button  Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  arrowleft}" Margin="0,0,10,0" Command="{Binding Nav_To_lastPage_Command}" />
+                        <Label Style="{StaticResource Headerlable}" Text="Home" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  Search}" HorizontalOptions="End"  FontSize="23" Margin="0,0,15,0" RotationY="180" Command="{Binding Nav_To_Search_Command}"/>
+                    </StackLayout>
+                    <!--End nav bar StackLayout-->                    
+
+                    <ScrollView>
+                    <StackLayout>
+                        
+                    
+                            <!--Start Frist list view-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--Start img slider-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                                <Image x:Name="imagerrtt"  Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                            </StackLayout>
+                            <!--End img slider-->
+
+                            <Label Style="{StaticResource Boldlable}" Text="New Prodects" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" Margin="10,0,0,0" />
+
+
+                            <!--Start list view Tow Item-->
+                            <syncfusion:SfListView IsVisible="{Binding TwoItemListView}" ItemsSource="{Binding ProdectTByCategorieList}"   ItemSize="320" ColumnSpacing=".1"  RowSpacing="5" ItemSpacing="5,5,5,0">
+                                <syncfusion:SfListView.LayoutManager>
+                                    <syncfusion:GridLayout SpanCount="2" />
+                                </syncfusion:SfListView.LayoutManager>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" BackgroundColor="#DCD8D8"   HeightRequest="100" Margin="0,0" >
+
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                    </StackLayout.GestureRecognizers>
+                                                    <StackLayout VerticalOptions="Start" >
+
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="10,0,0,0" >
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="EndAndExpand" HorizontalOptions="Start" Padding="10,0,10,10">
+
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="Start" FontSize="17"/>
+
+                                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="EndAndExpand" HorizontalOptions="Start" >
+                                                            <Button  Style="{StaticResource productsIconButton}"  Text="{StaticResource cartplus}"  WidthRequest="100" />
+                                                            <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                            <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                            </syncfusion:SfListView>
+                            <!--End list view Tow Item-->
+
+                        </StackLayout>
+                        <!--End Frist list view-->
+                        <!--Start Frist list view-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--Start img slider-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                                <Image  Source="img_1.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                            </StackLayout>
+                            <!--End img slider-->
+
+                            <Label Style="{StaticResource Boldlable}" Text="New Prodects" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" Margin="10,0,0,0" />
+
+
+                            <!--Start list view Tow Item-->
+                            <syncfusion:SfListView IsVisible="{Binding TwoItemListView}" ItemsSource="{Binding ProdectTByCategorieList}"   ItemSize="320" ColumnSpacing=".1"  RowSpacing="5" ItemSpacing="5,5,5,0">
+                                <syncfusion:SfListView.LayoutManager>
+                                    <syncfusion:GridLayout SpanCount="2" />
+                                </syncfusion:SfListView.LayoutManager>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" BackgroundColor="#DCD8D8"   HeightRequest="100" Margin="0,0" >
+
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                    </StackLayout.GestureRecognizers>
+                                                    <StackLayout VerticalOptions="Start" >
+
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="10,0,0,0" >
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="EndAndExpand" HorizontalOptions="Start" Padding="10,0,10,10">
+
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="Start" FontSize="17"/>
+
+                                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="EndAndExpand" HorizontalOptions="Start" >
+                                                            <Button  Style="{StaticResource productsIconButton}"  Text="{StaticResource cartplus}"  WidthRequest="100" />
+                                                            <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                            <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                            </syncfusion:SfListView>
+                            <!--End list view Tow Item-->
+
+                        </StackLayout>
+                        <!--End Frist list view-->
+                        <!--Start Frist list view-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--Start img slider-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                                <Image  Source="img_2.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                            </StackLayout>
+                            <!--End img slider-->
+
+                            <Label Style="{StaticResource Boldlable}" Text="New Prodects" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" Margin="10,0,0,0" />
+
+
+                            <!--Start list view Tow Item-->
+                            <syncfusion:SfListView IsVisible="{Binding TwoItemListView}" ItemsSource="{Binding ProdectTByCategorieList}"   ItemSize="320" ColumnSpacing=".1"  RowSpacing="5" ItemSpacing="5,5,5,0">
+                                <syncfusion:SfListView.LayoutManager>
+                                    <syncfusion:GridLayout SpanCount="2" />
+                                </syncfusion:SfListView.LayoutManager>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" BackgroundColor="#DCD8D8"   HeightRequest="100" Margin="0,0" >
+
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                    </StackLayout.GestureRecognizers>
+                                                    <StackLayout VerticalOptions="Start" >
+
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="10,0,0,0" >
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="EndAndExpand" HorizontalOptions="Start" Padding="10,0,10,10">
+
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="Start" FontSize="17"/>
+
+                                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="EndAndExpand" HorizontalOptions="Start" >
+                                                            <Button  Style="{StaticResource productsIconButton}"  Text="{StaticResource cartplus}"  WidthRequest="100" />
+                                                            <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                            <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                            </syncfusion:SfListView>
+                            <!--End list view Tow Item-->
+
+                        </StackLayout>
+                        <!--End Frist list view-->
+                        <!--Start Frist list view-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--Start img slider-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                                <Image Source="img_3.jpg"  Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                            </StackLayout>
+                            <!--End img slider-->
+
+                            <Label Style="{StaticResource Boldlable}" Text="New Prodects" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" Margin="10,0,0,0" />
+
+
+                            <!--Start list view Tow Item-->
+                            <syncfusion:SfListView IsVisible="{Binding TwoItemListView}" ItemsSource="{Binding ProdectTByCategorieList}"   ItemSize="320" ColumnSpacing=".1"  RowSpacing="5" ItemSpacing="5,5,5,0">
+                                <syncfusion:SfListView.LayoutManager>
+                                    <syncfusion:GridLayout SpanCount="2" />
+                                </syncfusion:SfListView.LayoutManager>
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" BackgroundColor="#DCD8D8"   HeightRequest="100" Margin="0,0" >
+
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                    </StackLayout.GestureRecognizers>
+                                                    <StackLayout VerticalOptions="Start" >
+
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="10,0,0,0" >
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="EndAndExpand" HorizontalOptions="Start" Padding="10,0,10,10">
+
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="Start" FontSize="17"/>
+
+                                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="EndAndExpand" HorizontalOptions="Start" >
+                                                            <Button  Style="{StaticResource productsIconButton}"  Text="{StaticResource cartplus}"  WidthRequest="100" />
+                                                            <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                            <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                            </syncfusion:SfListView>
+                            <!--End list view Tow Item-->
+
+                        </StackLayout>
+                        <!--End Frist list view-->
+                                                    <!--Start Frist list view-->
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                            <!--Start img slider-->
+                            <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                                <Image  Source="img_1.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                            </StackLayout>
+                            <!--End img slider-->
+
+                            <Label Style="{StaticResource Boldlable}" Text="New Prodects" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" Margin="10,0,0,0" />
+
+
+                            <!--Start list view Tow Item-->
+                            <syncfusion:SfListView Orientation="Horizontal" IsVisible="{Binding TwoItemListView}" ItemsSource="{Binding ProdectTByCategorieList}" HeightRequest="150"  ItemSize="120" ColumnSpacing=".1"  RowSpacing="5" ItemSpacing="5,5,5,0">
+
+                                <syncfusion:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" BackgroundColor="#DCD8D8"   HeightRequest="100" Margin="0,0" >
+
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="0">
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                    </StackLayout.GestureRecognizers>
+                                                    <StackLayout VerticalOptions="Start" >
+
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="10,0,0,0" >
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                    </StackLayout>
+                                                    <StackLayout  VerticalOptions="EndAndExpand" HorizontalOptions="Start" Padding="10,0,10,10">
+
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="Start" FontSize="17"/>
+
+                                                        <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="EndAndExpand" HorizontalOptions="Start" >
+                                                            <Button  Style="{StaticResource productsIconButton}"  Text="{StaticResource cartplus}"  WidthRequest="100" />
+                                                            <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                            <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </syncfusion:SfListView.ItemTemplate>
+                            </syncfusion:SfListView>
+                            <!--End list view Tow Item-->
+
+                        </StackLayout>
+                        <!--End Frist list view-->
+                    </StackLayout>
+                </ScrollView>
+
+                    <!--Start foter navigation-->
+                    <StackLayout VerticalOptions="Center"></StackLayout>
+                    <StackLayout Spacing="0">
+                        <BoxView Style="{StaticResource lineBoxView}"  />
+                        <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                            <StackLayout  Spacing="0" >
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                                <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                            </StackLayout>
+
+                            <StackLayout   Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                                <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                            </StackLayout >
+
+                            <StackLayout  Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                                <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                            </StackLayout>
+
+                            <StackLayout  Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                                <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                            </StackLayout>
+
+                            <StackLayout  IsEnabled="False"  Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                </StackLayout.GestureRecognizers>
+                                <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                                <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <!--End foter navigation-->
+                    
+                    
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<TapGestureRecognizer Command="{Binding Path=BindingContext.ItemTappedCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}}"/>-->

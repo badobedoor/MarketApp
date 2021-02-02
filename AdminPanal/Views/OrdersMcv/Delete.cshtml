@@ -1,0 +1,97 @@
+﻿
+@model AdminPanal.Models.OrderT
+
+@{
+    ViewBag.Title = "Home";
+}
+
+
+
+
+
+<h3>Are you sure this Order is Confirmed?</h3>
+<div>
+    <h4>Order Number : @Html.DisplayFor(model => model.OrderID)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectT.ProdectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectT.ProdectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectT.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectT.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectT.CategorieID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectT.CategorieID)
+        </dd>
+
+        <dt>
+            ..........
+        </dt>
+        <dd>
+            ..........
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserT.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserT.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserT.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserT.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserT.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserT.Phone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <input style="visibility:hidden" name="msg" id="msg" />
+
+        <div class="form-actions no-color">
+
+
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Cancel", "Cancel", new { id = Model.OrderID }, htmlAttributes: new { @class = "btn btn-default" })
+                @Html.ActionLink("Send Email to Shipping specialist", "SendEmail", "SendEmail", new { id = Model.OrderID }, htmlAttributes: new { @class = "btn btn-default" })
+            </div>
+
+
+        </div>
+
+
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

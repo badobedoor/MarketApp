@@ -1,0 +1,109 @@
+﻿@model IEnumerable<AdminPanal.Models.oldOrder>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "oldOrders", FormMethod.Get))
+{
+
+    <div class="form-group">
+        <div class="col-md-10" style="padding-right: 0px;padding-left: 0px;margin-bottom:15px">
+            <input class="form-control text-box single-line" style="width:100%;max-width: 100%;height: 33px;padding: 10px;border-bottom-left-radius: 15px;border-top-left-radius: 15px;" id="search" name="search" type="text" value="">
+        </div>
+        <input type="submit" value="search" class="btn btn-danger col-md-2" style="margin-left:-5px;margin-bottom:15px" />
+    </div>
+    <b style="margin-right:15px; float:left; margin-bottom:25px; " class="">Search By</b>
+    @Html.DropDownList("SearchBy", new List<SelectListItem>
+{
+new SelectListItem {Text="Prodect Name",Value="1",Selected=true},
+new SelectListItem {Text="Prodect Price",Value="2"},
+new SelectListItem {Text="User  Name",Value="3"},
+new SelectListItem {Text="User Email",Value="4"},
+new SelectListItem {Text="User Phone",Value="5"},
+}, "Search By")
+
+
+
+
+
+}
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProdectName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+
+        <th>
+            Order Cancel
+        </th>
+
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3">No Order Match The Search</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdectName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+
+                <td name="cancelTd">
+                    @if (item.CancelMassage == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {<span>Canceled</span>}
+                </td>
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.OrderNumber }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.OrderNumber }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderNumber })
+                </td>
+            </tr>
+        }
+    }
+</table>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:MarketApp"
+             xmlns:ViewModel="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <ViewModel:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout >
+            <!--Start general grid-->
+            <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                <!--Start background Image-->
+                <Image Style="{StaticResource img}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Source="shop.jpg"  Grid.Column="0" Grid.Row="0"  />
+                <!--End background Image-->
+
+                <!--Start background color-->
+                <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".97"/>
+                <!--End background color-->
+
+                <!--Start Content StackLayout-->
+                <StackLayout VerticalOptions="Fill" Spacing="0" Grid.Column="0" Grid.Row="0" >
+                    <!--Start nav bar StackLayout-->
+
+                    <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}" />
+                        <Label Style="{StaticResource Headerlable}" Text="Test" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                    </StackLayout>
+                    <!--End nav bar StackLayout-->
+                    <ScrollView VerticalOptions="StartAndExpand">
+                        <!--Start list view -->
+                        <syncfusion:SfListView x:Name="ac" ItemsSource="{Binding  ProductList}" ItemSize="140">
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <StackLayout VerticalOptions="StartAndExpand">
+                                            <border:SfBorder BorderColor="Black" BorderWidth="1" BackgroundColor="#E7FCFE"   HeightRequest="120" Margin="10,15" >
+                                                <StackLayout Style="{StaticResource contanerStackLayout}" >
+                                                    <StackLayout  Style="{StaticResource contanerStartStackLayout}">
+                                                        <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding  name}" />
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}"/>
+                                                        <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End" HorizontalOptions="Start">
+
+                                                            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,0,10">
+                                                                <Label Style="{StaticResource FA.solid.LabelStyle}"  Text="{StaticResource minusIcon}"   TextColor="{StaticResource  Darkgraycolor }" WidthRequest="30" FontSize="20"   Margin="0,5,0,0"/>
+                                                                <Label Style="{StaticResource listViewPriceLabel}" FontSize="25" Text="2"  TextColor="{StaticResource Darkgraycolor }" HorizontalOptions="Center" Margin="0,0,10,0"/>
+                                                                <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource PlusIcon}"  TextColor="{StaticResource Darkgraycolor }" WidthRequest="30" FontSize="20" Margin="0,5,0,0"  />
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource DeleteIcon}" TextColor="#333030" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,0,10"/>
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Fill" HorizontalOptions="End">
+                                                        <Image Style="{StaticResource listViewimg}" Source="makeup.jpg"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </border:SfBorder>
+                                            <!--End list view -->
+
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+
+
+
+
+                        <!--End list view -->
+                    </ScrollView>
+                    <StackLayout VerticalOptions="Center"/>
+                    <StackLayout VerticalOptions="EndAndExpand">
+                        <StackLayout Orientation="Horizontal" Padding="15,0">
+                            <Label Style="{StaticResource Normallable}" FontSize="25" Text="Total Amount" HorizontalOptions="StartAndExpand"/>
+                            <Label Style="{StaticResource listViewPriceLabel}" Text="$ 125.5" FontSize="25" HorizontalOptions="EndAndExpand" />
+                        </StackLayout>
+                        <BoxView Style="{StaticResource lineBoxView}"  WidthRequest="400"  Margin="15" HeightRequest="1"  />
+
+                        <Button x:Name="CheckoutBtn" Style="{StaticResource bigButton}" Text="CHECKOUT" BorderRadius="25" Margin="25,0,25,15" BackgroundColor="#8BC24A" />
+                    </StackLayout>
+
+
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+            </Grid>
+            <!--End general grid-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,82 @@
+﻿@model AdminPanal.Models.ProdectT
+@{
+    ViewBag.Title = "Image Upload";
+}
+
+
+<p>prodectID is: @ViewBag.user</p>
+
+@{ WebImage photo = null;
+    var newFileName = "";
+    var imagePath = "";
+
+    if (IsPost)
+    {
+        photo = WebImage.GetImageFromRequest();
+
+        if (photo != null)
+        {
+            newFileName = DateTime.Now.ToString("yymmssfff") + "_" +
+                Path.GetFileName(photo.FileName);
+            imagePath = @"UploadedFiles\" + newFileName;
+
+
+            photo.Save(@"~\" + imagePath);
+
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+</head>
+<body style="margin-top:25px">
+
+
+
+
+
+
+    <form method="post" action="" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <h5 class="control-label col-md-2" style="font-weight:bold;">Upload Image</h5>
+            <div class="col-md-10">
+                <input class="form-control" style="padding: 0px;  margin-top:5px" type="file" name="Image" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="margin-top:10px;margin-bottom:15px">
+                
+                <input type="submit" value="Upload" onclick="location.href='@Url.Action("Indexx","Image")'" class="btn btn-primary" />
+
+                @Html.ActionLink("Save", "Create", "ProdectsMcv", null, new { @class = "btn btn-primary", @style = "color:#fff;" })
+
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+
+
+
+    @if (imagePath != "")
+    {
+        <h3>Uploaded Image</h3>
+        <p>prodectID is: @ViewBag.Imagepath</p>
+        @*<img src="@imagePath" alt="image" />*@
+
+
+    }
+
+
+</body>
+</html>
+

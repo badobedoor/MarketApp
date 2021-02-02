@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarketApp.App">
+	<Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="NormalTextColor">#fff</Color>
+            <Color x:Key="headerBackGroundColor">#3D72FF</Color>
+            <Color x:Key="PageBackGroundColor">#F2F2F2</Color>
+            <Color x:Key="bigButtonBackGroundColor">#3a518e</Color>
+            <Color x:Key="listViewBackGroundColor">#fff</Color>
+            <Color x:Key="starColor">#FFE600</Color>
+            <Color x:Key="Darkgraycolor">#707070</Color> 
+            <Color x:Key="graycolor">#404040</Color>
+            <Color x:Key="wgraycolor">#595252</Color>
+            <Color x:Key="Bluecolor">#3D72FF</Color>
+            <Color x:Key="LightGray">#DCD8D8</Color>
+            
+            
+
+            <!--brands-->
+            <x:String x:Key="circlerightIcon">&#xf138;</x:String>
+            <!--brands-->
+            <!--brands-->
+            <x:String x:Key="FacebookIcon">&#xf09a;</x:String>
+            <!--brands-->
+            <x:String x:Key="GoogleIcon">&#xf2b3;</x:String>
+            <!--Solid-->
+            <x:String x:Key="HomeIcon">&#xf015;</x:String>
+            <!--Solid-->
+            <!--regular-->
+            <x:String x:Key="FullHeartIcon">&#xf004;</x:String>
+            <!--Solid-->
+            <x:String x:Key="LocationIcon">&#xf3c5;</x:String>
+            <!--Solid-->
+            <x:String x:Key="logoutIcon">&#xf2f5;</x:String>
+            <!--Solid-->
+            <x:String x:Key="MuneIcon">&#xf039;</x:String>
+            <!--Solid-->
+            <x:String x:Key="ShopIcon">&#xf07a;</x:String>
+            <!--Solid-->
+            <x:String x:Key="UserIcon">&#xf2bd;</x:String>
+            <!--Solid-->
+            <x:String x:Key="ShopPasktIcon">&#xf291;</x:String>
+            <!--Solid-->
+            <x:String x:Key="PaymentIcon">&#xf155;</x:String>
+            <!--Solid-->
+            <x:String x:Key="StarIcon">&#xf005;</x:String>
+            <!--Solid-->
+            <x:String x:Key="DeleteIcon">&#xf2ed;</x:String>
+            <!--Solid-->
+            <x:String x:Key="PlusIcon">&#xf067;</x:String>
+            <!--Solid-->
+            <x:String x:Key="minusIcon">&#xf068;</x:String>
+            <!--Solid-->
+            <x:String x:Key="buttonCircleIcon">&#xf138;</x:String>
+            <!--Solid-->
+            <x:String x:Key="arrowleft">&#xf060;</x:String> 
+            <!--Solid-->
+            <x:String x:Key="Search">&#xf002;</x:String>
+            <!--Solid-->
+            <x:String x:Key="List">&#xf00a;</x:String>
+
+            <x:String x:Key="arrowuup">&#xf0dc;</x:String>
+
+            <x:String x:Key="cartplus">&#xf217;</x:String>
+            
+            <x:String x:Key="angleright">&#xf105;</x:String>
+            
+            <x:String x:Key="Date">&#xf073;</x:String>
+            
+            <x:String x:Key="creditcard">&#xf09d;</x:String>
+            
+            <x:String x:Key="Flag">&#xf11e;</x:String>
+            
+            <x:String x:Key="Globe">&#xf0ac;</x:String>
+            
+            <x:String x:Key="usercircle">&#xf2be;</x:String>
+            
+            <x:String x:Key="listalt">&#xf022;</x:String>
+
+
+
+            
+            <!--Start costom Fonts-->
+
+            <!-- big lable , adress lable , master dital page lable-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="FrancoisOne-Regular.ttf#Francois One" />
+                <On Platform="iOS" Value="FrancoisOne-Regular" />
+            </OnPlatform>
+            <!-- prodect name in list view , grid view and checkout page  -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="BarlowCondensed-MediumItalic.ttf#Barlow Condensed" />
+                <On Platform="iOS" Value="BarlowCondensed-MediumItalic" />
+            </OnPlatform>
+            <!-- entry lable -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="RegularFont">
+                <On Platform="Android" Value="Vollkorn-Italic.ttf#Vollkorn" />
+                <On Platform="iOS" Value="Vollkorn-Italic" />
+            </OnPlatform>
+
+            <!-- Normal lable -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="smallfont">
+                <On Platform="Android" Value="Amiri-Regular.ttf#Amiri Regular" />
+                <On Platform="iOS" Value="Amiri-Regular" />
+            </OnPlatform>
+
+            <!--End costom Fonts-->
+
+            <!--Start Font Awesome FontFamily Label-->
+            <Style x:Key="FA.Regular.LabelStyle"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-regular-400.ttf#Font Awesome 5 Free Regular"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.Brands.LabelStyle"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-brands-400.ttf#Font Awesome 5 Brands Regular"
+                                   iOS="Font Awesome 5 Brands"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.solid.LabelStyle"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Free solid"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="LabelStyle.homeText"  TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="11"/>
+            </Style>
+
+            <Style x:Key="FA.solid.LabelStyle.homeIcon"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Margin" Value="20,0,0,0"/>
+
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Free solid"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--End Font Awesome FontFamily Label-->
+
+
+            <!--Start Font Awesome FontFamily Button-->
+            <Style x:Key="FA.Regular.ButtonStyle"  TargetType="Button">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-regular-400.ttf#Font Awesome 5 Free Regular"
+                                   iOS="Font Awesome 5 Free" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.Brands.ButtonStyle"  TargetType="Button">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-brands-400.ttf#Font Awesome 5 Brands Regular"
+                                   iOS="Font Awesome 5 Brands"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FA.solid.ButtonStyle"  TargetType="Button">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Brands solid"
+                                   iOS="Font Awesome 5 solid"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--End Font Awesome FontFamily Button-->
+
+
+            <!--Start Label Style -->
+            <Style TargetType="Label" x:Key="Boldlable">
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Normallable">
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Regularlable">
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource RegularFont}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Smalllable">
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource smallfont}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <!--End Label Style -->
+
+
+            <!--Start Header Section-->
+
+            <!--Start Staic layout-->
+            <Style TargetType="StackLayout" x:Key="HeaderStackLayout">
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="Spacing" Value="15"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Padding" Value="10,0"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource headerBackGroundColor}"/>
+            </Style>
+            <!--End Staic layout-->
+
+            <!--Start Header Image -->
+            <Style TargetType="Image" x:Key="HeaderImg">
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="25"/>
+                <Setter Property="HeightRequest" Value="25"/>
+            </Style>
+            <!--End Header Image -->
+
+            <!--Start Header Label -->
+            <Style TargetType="Label" x:Key="Headerlable">
+                <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="Margin" Value="0,-5,0,0"/>
+            </Style>
+            <!--End Header Label -->
+
+            <!--End Header Section-->
+
+            <!--Start big list view controls-->
+
+            <!--Start StackLayout-->
+            <Style TargetType="StackLayout" x:Key="contanerStackLayout">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="Spacing" Value="10"/>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="contanerStartStackLayout">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource listViewBackGroundColor}"/>
+                <Setter Property="Margin" Value="10,20,0,10"/>
+            </Style>
+            <!--End StackLayout-->
+
+            <!--Start label-->
+            <Style TargetType="Label" x:Key="listViewProdectLabel">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="#000"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontFamily" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="listViewPriceLabel">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="#3D72FF"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}"/>
+            </Style>
+            <!--End label-->
+
+            <!--Start img-->
+            <Style TargetType="Image" x:Key="listViewimg">
+                
+                <Setter Property="HeightRequest" Value="220"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <!--End img-->
+            
+            <!--Start img-->
+            <Style TargetType="Image" x:Key="listViewWishlistimg">
+                <Setter Property="WidthRequest" Value="114"/>
+                <Setter Property="HeightRequest" Value="115"/>
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <!--End img-->
+
+            <!--End big list view controls-->
+             
+            <!--Start BoxView Style -->
+            <Style TargetType="BoxView" x:Key="lineBoxView">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Color" Value="#DCD8D8"/>
+                <Setter Property="WidthRequest" Value="400"/>
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource NormalTextColor}"/>
+            </Style>
+            <!--End BoxView Style -->
+
+
+            <!--Start image Style -->
+            <Style TargetType="Image" x:Key="img">
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <!--End image Style -->
+
+            <!--Start grid 1Row 1Colom-->
+            <Style TargetType="Grid" x:Key="gridOneRowOneColme">
+                <Setter Property="RowDefinitions">
+                    <Setter.Value>
+                        <RowDefinitionCollection>
+                            <RowDefinition Height="*"/>
+                        </RowDefinitionCollection>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ColumnDefinitions">
+                    <Setter.Value>
+                        <ColumnDefinitionCollection>
+                            <ColumnDefinition Width="*"/>
+                        </ColumnDefinitionCollection>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--End grid 1Row 1Colom-->
+
+            <!--Start Big Button-->
+            <Style TargetType="Button" x:Key="bigButton">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="FontSize" Value="17"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource bigButtonBackGroundColor}"/>
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}"/>
+            </Style>
+            <!--End Big Button-->
+
+            <!--Start products Icon Button-->
+            <Style TargetType="Button" x:Key="productsIconButton">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="170"/>
+                <Setter Property="BackgroundColor" Value="#3D72FF"/>
+                <Setter Property="TextColor" Value="#fff"/>
+                <Setter Property="BorderRadius" Value="5"/>
+                <Setter Property="Padding" Value="0"/>
+                
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Free solid"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--End products Icon Button-->
+            
+            <!--Start Wishlist big Button-->
+            <Style TargetType="Button" x:Key="WishlistbigButton">
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="170"/>
+                <Setter Property="BackgroundColor" Value="#F2F2F2"/>
+                <Setter Property="TextColor" Value="#333030"/>
+                <Setter Property="BorderRadius" Value="5"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+            <!--End Wishlist big Button-->
+
+            <!--Start Wishlist Icon Button-->
+            <Style x:Key="WishlistIconButton"  TargetType="Button">
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="TextColor" Value="#333030"/>
+                <Setter Property="BackgroundColor" Value="#F2F2F2"/>
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="BorderRadius" Value="5"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Brands solid"
+                                   iOS="Font Awesome 5 solid"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--End Wishlist Icon Button-->
+
+
+            <!--Start Wishlist Icon Label-->
+            <Style x:Key="WishlistIconLabel"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="22"/>
+                <Setter Property="WidthRequest" Value="55"/>
+                <Setter Property="TextColor" Value="#333030"/>
+                <Setter Property="BackgroundColor" Value="#F2F2F2"/>
+                <Setter Property="FontSize" Value="19"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Brands solid"
+                                   iOS="Font Awesome 5 solid"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--End Wishlist Icon Label-->
+
+
+            <!--Start CartIconFrame Style -->
+            <Style TargetType="Frame" x:Key="CartIconFrame">
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="20"/>
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BackgroundColor" Value="#333030"/>
+            </Style>
+            <!--End CartIconFrame Style -->
+            
+                <!--Start CartIconFrame Style -->
+            <Style x:Key="cartPlusMinusIcon"  TargetType="Label">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="20"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="WidthRequest" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Free solid"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+                
+            </Style>
+            <!--End CartIconFrame Style -->
+
+            <!--Start CustomerSitingIcon Style -->
+            <Style x:Key="CustomerSitingIcon"  TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource graycolor}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="Margin" Value="0,3,0,0"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String"
+                                   Android="fa-solid-900.ttf#Font Awesome 5 Free solid"
+                                   iOS="Font Awesome 5 Free"/>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <!--End CustomerSitingIcon Style -->
+          
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

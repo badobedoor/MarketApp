@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.productsDetailPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackGroundColor}"
+             x:Name="Page">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout Spacing="0" >
+            <!--Start Content StackLayout-->
+            <StackLayout Spacing="0" VerticalOptions="Start" >
+                <!--Start nav bar StackLayout-->
+                <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0" HeightRequest="65">
+                    <Button  Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  arrowleft}" Margin="0,0,10,0" Command="{Binding Nav_To_lastPage_Command}" />
+                    <Label Style="{StaticResource Headerlable}" Text="productsPage " />
+                    <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  Search}" HorizontalOptions="End"  FontSize="23" Margin="0,0,15,0" RotationY="180" Command="{Binding Nav_To_Search_Command}"/>
+                </StackLayout>
+                <!--End nav bar StackLayout-->
+
+                <ScrollView>
+                    <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill">
+                        <!--Start Image Product-->
+                        <StackLayout HorizontalOptions="Fill" VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="White" Padding="20">
+                            <Image x:Name="imagerrtt"  Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"  HeightRequest="420" />
+                            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center" Margin="0,20,0,0">
+                                <border:SfBorder x:Name="border_1" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                    <Image  Source="mm_1.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                </border:SfBorder>
+                                <border:SfBorder x:Name="border_2" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                    <Image  Source="mm_2.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                </border:SfBorder>
+                                <border:SfBorder x:Name="border_3" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                    <Image  Source="mm_3.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                </border:SfBorder>
+                                <border:SfBorder x:Name="border_4" VerticalOptions="Center" HorizontalOptions="Center"  BorderWidth="1.3" BorderColor="Gray" BackgroundColor="White" HeightRequest="35" WidthRequest="35" Padding="5">
+                                    <Image  Source="mm_4.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill"   />
+                                </border:SfBorder>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--End Image Product-->
+
+                        <!--Star Prodduct informations-->
+                        <border:SfBorder VerticalOptions="Start" HorizontalOptions="Fill" BorderColor="{StaticResource LightGray}" BorderWidth="1" BackgroundColor="#fff" HeightRequest="150"  Margin="0,10,0,10" >
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10,5">
+                                <Label Style="{StaticResource Boldlable}" Text="{Binding ProdectByImage.ProdectName}" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="Start" TextColor="{StaticResource graycolor}"/>
+                                <Label Style="{StaticResource Normallable}" Text="{Binding ProdectByImage.Price}" FontSize="20" VerticalOptions="StartAndExpand" HorizontalOptions="Start" TextColor="{StaticResource graycolor}"/>
+                                <StackLayout Orientation="Horizontal" Spacing="15">
+                                    <Grid Style="{StaticResource gridOneRowOneColme}"  HorizontalOptions="Start">
+                                        <Label Style="{StaticResource Normallable}" Margin="5,0,0,0" Text="{Binding ProdectByImage.Price}" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start" TextColor="LightGray" Grid.Column="0" Grid.Row="0"/>
+                                        <BoxView Style="{StaticResource lineBoxView}"  WidthRequest="60" HeightRequest="2" Margin="0,5,0,0" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" />
+                                    </Grid>
+                                    <Label Style="{StaticResource WishlistIconLabel}" Text="-35%" BackgroundColor="#E7EDFF" TextColor="#3D72FF" FontSize="15" HorizontalTextAlignment="Center"/>
+                                    <StackLayout HorizontalOptions="CenterAndExpand"/>
+                                    <Label Style="{StaticResource Smalllable}" Text="Rating" TextColor="Black" HorizontalOptions="End"/>
+                                </StackLayout>
+                                
+
+                            </StackLayout>
+                        </border:SfBorder>
+                        <!--End Prodduct informations-->
+
+                        <Label Text="PRODUCCT DETAILS"/>
+                        <!--Star Description Siction-->
+
+                        <border:SfBorder VerticalOptions="Start" HorizontalOptions="Fill" BorderColor="{StaticResource LightGray}" BorderWidth="1" BackgroundColor="#fff" HeightRequest="150"  Margin="0,10,0,10" >
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10,5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Style="{StaticResource Boldlable}" Text="Descriotion" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                </StackLayout>
+                                
+                                <BoxView Style="{StaticResource lineBoxView}" />
+                                <Label Style="{StaticResource Boldlable}" Text="{Binding ProdectByImage.Descriotion}" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                            </StackLayout>
+                        </border:SfBorder>
+                        <!--End Description Siction-->
+                    
+
+                    </StackLayout>
+                </ScrollView>
+
+
+
+            </StackLayout>
+            <!--End Content StackLayout-->
+
+            <!--Start foter navigation-->
+            <StackLayout VerticalOptions="Center"/>
+            <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="Fill" Padding="0,0,0,10"  BackgroundColor="#fff">
+                <BoxView Style="{StaticResource lineBoxView}" />
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center">
+                    <Button  Style="{StaticResource productsIconButton}"   Text="ADD TO CART"  VerticalOptions="Center"  WidthRequest="250" HeightRequest="40" HorizontalOptions="Center" />
+
+                    <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource FullHeartIcon}" WidthRequest="40">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout Spacing="0">
+                <BoxView Style="{StaticResource lineBoxView}"   />
+                <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                    <StackLayout  IsEnabled="False" Spacing="0" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                        <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout   Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                        <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                    </StackLayout >
+
+                    <StackLayout  Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                        <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout  Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                        <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout    Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                        <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <!--End foter navigation-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>

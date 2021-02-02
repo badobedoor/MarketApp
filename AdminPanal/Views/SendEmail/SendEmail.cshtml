@@ -1,0 +1,46 @@
+﻿@model AdminPanal.Models.OrderT
+@{
+    ViewBag.Title = "SendEmail";
+}
+@*@Html.EditorFor(model => model.OrderID,"id",)*@
+<h2> SendEmail </h2>
+<br / > <br />
+@if (ViewBag.Error != null)
+{
+    <h2> @ViewBag.Error </h2>
+}
+<h4>Order Number : @Html.DisplayFor(model => model.OrderID)</h4>
+<form method="post" action="SendEmail">
+
+    @Html.EditorFor(model => model.OrderID, "id", new { htmlAttributes = new { @class = "form-control", @style= "visibility:hidden" } })
+
+    <div class="container">
+        <span  class="form-control-static"> Email Receiver: </span>
+        <input class="form-control" type="text" name="receiver" />
+        <br />
+        <span class="form-control-static"> Subject: </span>
+        <input class="form-control" type="text" value="Massage Title" name="subject" />
+        <br />
+        <span class="form-control-static"> Message: </span>
+        <textarea class="form-control" type="text" name="message" cols="35" rows="3">
+            @ViewBag.msg
+        </textarea>
+        @*<input class="form-control" type="text"  name="message" />*@
+        <br />
+        <input class="btn btn-primary" type="submit" value="Send" />
+
+        @*<a class="btn btn-primary" onclick="sendEmail()">Click To Send Email</a>*@
+    </div>
+</form>
+
+@*<script>
+        var senEmail = function () {
+            $.ajax({
+                type: "Post",
+                Url: "/SendEmail/SendEmailtouser",
+                success: function (data) {
+                    alert("Success")
+                }
+            })
+        }
+    </script>*@

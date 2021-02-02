@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MarketApp.views.CustomerSitingPage"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackGroundColor}"
+             x:Name="Page">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout Spacing="0" >
+            <!--Start Content StackLayout-->
+            <StackLayout Spacing="0" VerticalOptions="Start" >
+                <!--Start nav bar StackLayout-->
+                <StackLayout Style="{StaticResource HeaderStackLayout}" Orientation="Vertical" Spacing="0" Padding="0,5,0,0" HeightRequest="80" BackgroundColor="#fff">
+                    <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Start" >
+                        <Button  Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  arrowleft}" Margin="0,0,10,0" Command="{Binding Nav_To_lastPage_Command}" TextColor="Black" />
+                        <Label Style="{StaticResource Headerlable}" Text="Hi ANS " TextColor="Black" />
+                    </StackLayout>
+                    <Label Style="{StaticResource Smalllable}" Text="ansbedoor@gmail.com" TextColor="Gray" Margin="10,-10,0,0" HorizontalOptions="Start" VerticalOptions="Start" VerticalTextAlignment="Start"  FontSize="18" />
+
+                </StackLayout>
+                <!--End nav bar StackLayout-->
+
+                <ScrollView>
+                    <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill">
+                        <!--Start img slider-->
+                        <StackLayout HorizontalOptions="Fill" VerticalOptions="Start"  BackgroundColor="Black">
+                            <Image  Source="img_1.jpg" Aspect="AspectFit" HorizontalOptions="Fill" VerticalOptions="Fill" Opacity="0.7" />
+                        </StackLayout>
+                        <!--End img slider-->
+                        <Label Text="MY ACCOUNT" Margin="10,5,0,0"/>
+                        <!--Star MY ACCOUNT Siction-->
+
+                        <border:SfBorder  VerticalOptions="Start" HorizontalOptions="Fill" BorderColor="{StaticResource LightGray}" BorderWidth="1" BackgroundColor="#fff" HeightRequest="238"  Margin="0,10,0,10" >
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10,5" Spacing="20">
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource listalt}" />
+                                        <Label Style="{StaticResource Boldlable}" Text="Orders" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource Date}" />
+                                        <Label Style="{StaticResource Boldlable}" Text="Addresses" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource creditcard}" />
+                                        <Label Style="{StaticResource Boldlable}" Text="Payment" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource UserIcon}" />
+                                        <Label Style="{StaticResource Boldlable}" Text="Profile" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+                            </StackLayout>
+                            
+                            
+                        </border:SfBorder>
+                        <!--End MY ACCOUNT Siction-->
+
+                        <Label Text="SETTINGS"  Margin="10,0"/>
+
+                        <!--Star MY SETTINGS Siction-->
+
+                        <border:SfBorder  VerticalOptions="Start" HorizontalOptions="Fill" BorderColor="{StaticResource LightGray}" BorderWidth="1" BackgroundColor="#fff" HeightRequest="110"  Margin="0,10,0,10" >
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10,5" Spacing="20">
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource Globe}" />
+                                        <Label Style="{StaticResource Boldlable}" Text="Country" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+                                <StackLayout Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="14">
+                                        <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource Flag}" />
+                                        <Label Style="{StaticResource Boldlable}"  Text="Language" FontSize="25" Margin="0,-5,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}" />
+                                        <Label Style="{StaticResource Smalllable}" Text="English" HorizontalOptions="End"  VerticalOptions="Center" TextColor="Black"/>
+                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="End" VerticalOptions="Center" TextColor="Black"  />
+                                    </StackLayout>
+                                    <BoxView Style="{StaticResource lineBoxView}" />
+                                </StackLayout>
+
+
+
+                            </StackLayout>
+
+
+                        </border:SfBorder>
+                        <!--End MY SETTINGS Siction-->
+
+                        <StackLayout Spacing="0"  Padding="10,5">
+                            <StackLayout Orientation="Horizontal" Spacing="14">
+                                <Label Style="{StaticResource CustomerSitingIcon}" Text="{StaticResource logoutIcon}" />
+                                <Label Style="{StaticResource Boldlable}" Text="Sign Out" FontSize="25" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" TextColor="{StaticResource graycolor}"/>
+                                <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource angleright}" Margin="0,5,-20,0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="Black" />
+                            </StackLayout>
+                            <BoxView Style="{StaticResource lineBoxView}" />
+                        </StackLayout>
+
+                        <StackLayout HeightRequest="120"/>
+                    </StackLayout>
+                </ScrollView>
+
+
+
+            </StackLayout>
+            <!--End Content StackLayout-->
+
+            <!--Start foter navigation-->
+            <StackLayout VerticalOptions="Center"/>
+            <StackLayout Spacing="0" VerticalOptions="EndAndExpand">
+                <BoxView Style="{StaticResource lineBoxView}"   />
+                <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                    <StackLayout  IsEnabled="False" Spacing="0" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                        <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout   Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                        <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                    </StackLayout >
+
+                    <StackLayout  Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                        <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout  Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                        <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout    Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                        <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <!--End foter navigation-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>

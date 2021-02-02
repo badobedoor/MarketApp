@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="MarketApp.views.sinUpPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <!--Start general stacklayout-->
+            <StackLayout BackgroundColor="#fff" Opacity=".95">
+
+               
+
+                <!--Start Content StackLayout-->
+                <StackLayout Spacing="0" >
+
+                    <!--Start lange image-->
+                    <Image  Style="{StaticResource img}" HorizontalOptions="End" Source="Arr.png"  WidthRequest="30" HeightRequest="30"  Margin="0,10,10,0" />
+                    <Image  Style="{StaticResource img}" HorizontalOptions="End" Source="En.png"  WidthRequest="30" HeightRequest="30" IsVisible="False" Margin="0,10,10,0" />
+                    <!--End lange image-->
+
+                    <!--Start heder lable -->
+                    <Label Style="{StaticResource Smalllable}" Text="Welcome Back!"  FontSize="35" Margin="0,0,0,0" TextColor="#3B3B3B"/>
+                    <BoxView Style="{StaticResource lineBoxView}" WidthRequest="60"  HeightRequest="5" Color="#3B3B3B" Margin="0,-15,0,0"/>
+                    <Label Style="{StaticResource Smalllable}"   Text="Sign Up" FontSize="20" TextColor="#3B3B3B" Margin="0,-15,0,0"/>
+                    <!--End heder lable-->
+
+                    <!--Start Center Content stacklayout-->
+                    <StackLayout Spacing="0"  Margin="0,10,0,0">
+
+
+
+                        <!--start Grid Entry username  -->
+                        <Grid Style="{StaticResource gridOneRowOneColme}" >
+                            <inputLayout:SfTextInputLayout  Hint="UserName"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161"  Margin="30,0,25,0" >
+                                <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                <Entry TextColor="#000" Text="{Binding Username}"/>
+
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+                        <!--End  Grid Entry username-->
+
+                        <!--start Grid Entry Email  -->
+                        <Grid Style="{StaticResource gridOneRowOneColme}">
+                            <inputLayout:SfTextInputLayout  Hint="Email"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161"  Margin="30,0,25,0" >
+                                <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                <Entry TextColor="#000" Text="{Binding Email}"/>
+
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+                        <!--End  Grid Entry Email-->
+
+                        <!--start Grid Entry Password  -->
+                        <Grid Style="{StaticResource gridOneRowOneColme}">
+                            <inputLayout:SfTextInputLayout  Hint="Password"  EnablePasswordVisibilityToggle="true" ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161"  Margin="30,0,25,0" >
+                                <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                <Entry TextColor="#000" Text="{Binding Password}" IsPassword="True"/>
+
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+                        <!--End  Grid Entry Password-->
+
+                        <!--start Grid Entry confirm Password  -->
+                        <Grid Style="{StaticResource gridOneRowOneColme}">
+                            <inputLayout:SfTextInputLayout  Hint="Confirm Password"  EnablePasswordVisibilityToggle="true" ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161"  Margin="30,0,25,0" ErrorText="{Binding EroorMsg}">
+                                <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                <Entry TextColor="#000" Text="{Binding ConfirmPassword}" IsPassword="True"/>
+
+                            </inputLayout:SfTextInputLayout>
+                        </Grid>
+                        <!--End  Grid Entry confirm Password -->
+
+                        <!--Start Button image-->
+                        <Label Text="{Binding Message}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Button Command="{Binding RegisterCommand }"  Text="Sign Up" FontSize="20" Style="{StaticResource FA.solid.ButtonStyle}"  WidthRequest="200" HeightRequest="50" HorizontalOptions="Center"  CornerRadius="10" BackgroundColor="{StaticResource Bluecolor}" Margin="0,5,0,5"  Opacity="0.8" ></Button>
+                        <!--<Image Style="{StaticResource img}" Source="button.png"  WidthRequest="60" HeightRequest="60" Margin="0,5,0,5" />-->
+                        <!--End Button image-->
+
+                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="3" >
+                            <Label Style="{StaticResource Smalllable}" Text="Already have an acont?" TextColor="#000" Margin="20,0,0,0"/>
+                            <Button  x:Name="Nav_To_LogInPage" Clicked="Nav_To_LogInPage_Clicked"  Style="{StaticResource Boldlable}" FontFamily="" FontAttributes="Bold" VerticalOptions="Center" Margin="-15,-5,0,0" Padding="0" Text="Log in" BackgroundColor="Transparent"  TextColor="#000" /> <!--Nav_To_LogInPage_Command-->              
+                            
+                        </StackLayout>
+
+                        <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="5">
+                            <BoxView Style="{StaticResource lineBoxView}"  WidthRequest="80"  HeightRequest="3"  />
+                            <Label Style="{StaticResource Boldlable}" FontFamily=""  Text="OR" />
+                            <BoxView Style="{StaticResource lineBoxView}" WidthRequest="80"  HeightRequest="3"  />
+                        </StackLayout>
+
+                        <Label Style="{StaticResource Smalllable}" Text="Sign up with Social Networks" />
+
+                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="50" Margin="0,10,0,10">
+                            --><!--Start Button image-->
+                            <!--<Button  VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding Nav_To_FacebookPage_Command_M}" ImageSource="google.png"  WidthRequest="20" HeightRequest="20" Text="000" BackgroundColor="Transparent" />--><!--
+                            <ImageButton  Style="{StaticResource img}"  Command="{Binding Nav_To_GooglePage_Command}" Source="google.png"  WidthRequest="40" HeightRequest="40" BackgroundColor="Transparent" />
+                            <ImageButton  Style="{StaticResource img}" Command="{Binding Nav_To_FacebookPage_Command}" Source="facebook.png" WidthRequest="40" HeightRequest="40" BackgroundColor="Transparent"  />
+                            --><!--End Button image--><!--
+                        </StackLayout>-->
+
+
+                    </StackLayout>
+                    <!--End Center Content stacklayout-->
+
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+
+                <!--End general grid-->
+
+            </StackLayout>
+            <!--End general stacklayout-->
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

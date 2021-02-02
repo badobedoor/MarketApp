@@ -1,0 +1,108 @@
+﻿@model IEnumerable<AdminPanal.Models.ProdectT>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "ProdectsMcv", FormMethod.Get))
+{
+
+    <div class="form-group">
+        <div class="col-md-10" style="padding-right: 0px;padding-left: 0px;margin-bottom:15px">
+            <input class="form-control text-box single-line" style="width:100%;max-width: 100%;height: 33px;padding: 10px;border-bottom-left-radius: 15px;border-top-left-radius: 15px;" id="search" name="search" type="text" value="">
+        </div>
+        <input type="submit" value="search" class="btn btn-danger col-md-2" style="margin-left:-5px;margin-bottom:15px" />
+    </div>
+
+    <p style="float:left;margin-right:15px;">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <b style="margin-right:15px; float:left; margin-bottom:25px; " class="">Search By</b>
+    @Html.DropDownList("SearchBy", new List<SelectListItem>
+{
+new SelectListItem {Text="Prodect Name",Value="1",Selected=true},
+new SelectListItem {Text="Prodect Name Arbic",Value="2"},
+new SelectListItem {Text="Price",Value="3"},
+}, "Search By")
+    
+
+
+}
+
+
+<table class="table" style="clear:both">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdectName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="3">No Prodect Match The Search</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdectName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProdectID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProdectID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProdectID })
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
+
+@*<th>
+        @Html.DisplayNameFor(model => model.ImagePath)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.CategoriesT.CategorieName)
+    </th>*@
+
+@*<th>
+        @Html.DisplayNameFor(model => model.ProdectNameAR)
+    </th>*@
+@*<th>
+        @Html.DisplayNameFor(model => model.Descriotion)
+    </th>*@
+@*<th>
+        @Html.DisplayNameFor(model => model.DescriotionAR)
+    </th>*@
+
+
+@*<td>
+        @Html.DisplayFor(modelItem => item.ImagePath)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CategoriesT.CategorieName)
+    </td>*@

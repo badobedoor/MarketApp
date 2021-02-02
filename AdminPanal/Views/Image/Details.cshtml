@@ -1,0 +1,42 @@
+﻿@model AdminPanal.Models.ImageT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImageT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectT.ProdectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectT.ProdectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

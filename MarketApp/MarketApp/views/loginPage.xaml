@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.loginPage"
+           xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+            <StackLayout BackgroundColor="#fff">
+
+
+
+                    <!--Start Content StackLayout-->
+                    <StackLayout Spacing="0"  >
+
+                        <!--Start lange image-->
+                        <Image  Style="{StaticResource img}" HorizontalOptions="End" Source="Arr.png"  WidthRequest="30" HeightRequest="30"  Margin="0,10,10,0" />
+                        <Image  Style="{StaticResource img}" HorizontalOptions="End" Source="En.png"  WidthRequest="30" HeightRequest="30" IsVisible="False" Margin="0,10,10,0" />
+                        <!--End lange image-->
+
+                        <!--Start heder lable -->
+                <Label Style="{StaticResource Smalllable}" Text="Welcome Back!"  FontSize="35" Margin="0,0,0,0" TextColor="#3B3B3B"/>
+                <BoxView Style="{StaticResource lineBoxView}" WidthRequest="60"  HeightRequest="5" Color="#3B3B3B" Margin="0,-15,0,0"/>
+                <Label Style="{StaticResource Smalllable}"   Text="Log In" FontSize="20" TextColor="#3B3B3B" Margin="0,-15,0,0"/>
+                <!--End heder lable-->
+
+                        <!--Start Center Content stacklayout-->
+                        <StackLayout Spacing="0"  Margin="0,85,0,0">
+
+                            <!--start Grid Entry username  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                        <inputLayout:SfTextInputLayout  Hint="UserName"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161"  Margin="30,0,25,30" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                            <Entry TextColor="#000" Text="{Binding Email, Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry username-->
+
+                            <!--start Grid Entry password -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                        <inputLayout:SfTextInputLayout Hint="Password" EnablePasswordVisibilityToggle="true" ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#616161" UnfocusedColor="#616161" ContainerBackgroundColor="#12848F" Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+                                    <Entry TextColor="#000" Text="{Binding Password, Mode=TwoWay}" IsPassword="True" />
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry password-->
+
+                            <Label  Style="{StaticResource Smalllable}" Text="Forget Password?" HorizontalOptions="End" Margin="0,0,25,25" TextColor="#000"/>
+                            <!--Start Button image-->
+
+                            <Button Command="{Binding LoginCommand}"  Style="{StaticResource FA.solid.ButtonStyle}" Text="Log in" FontSize="20"   WidthRequest="200" HeightRequest="50" HorizontalOptions="Center"  CornerRadius="10" BackgroundColor="{StaticResource Bluecolor}" Opacity="0.8" Margin="0,5,0,5" ></Button>
+                            <!--<Image x:Name="GoBtton" Style="{StaticResource img}" Source="button.png"  WidthRequest="60" HeightRequest="60"  />-->
+                            <!--End Button image-->
+
+                            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="3" Margin="0,10,0,0" >
+                        <Label Style="{StaticResource Smalllable}" Text="Don't have an acont?" TextColor="#000" Margin="20,0,0,0"/>
+                        <Button x:Name="Nav_To_SignUpPage" Clicked="Nav_To_SignUpPage_Clicked"   Style="{StaticResource Boldlable}" FontFamily="" FontAttributes="Bold" VerticalOptions="Center" Margin="-15,-5,0,0" Padding="0" Text="Sign Up"  BackgroundColor="Transparent" TextColor="#000"/>
+                                <!--<Button Clicked="Button_Clicked"  Style="{StaticResource Boldlable}" FontFamily="" FontAttributes="Bold" VerticalOptions="Center" Margin="-5,0,0,-2" Padding="0" Text="Sign Up"  BackgroundColor="Transparent"/>-->
+                                <!--<Label x:Name="SignUpButton" Style="{StaticResource Boldlable}" FontFamily="" FontAttributes="Bold" VerticalOptions="Center" Margin="0,2,0,0" Text="Sign Up" BackgroundColor="Transparent"/>-->
+                            </StackLayout>
+
+                            <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="5">
+                                <BoxView Style="{StaticResource lineBoxView}"  WidthRequest="80"  HeightRequest="3"  />
+                                <Label Style="{StaticResource Boldlable}" FontFamily=""  Text="OR" />
+                                <BoxView Style="{StaticResource lineBoxView}" WidthRequest="80"  HeightRequest="3"  />
+                            </StackLayout>-->
+
+                            <!--<Label Style="{StaticResource Smalllable}" Text="Sign up with Social Networks" />-->
+
+                            <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="50" Margin="0,0,0,10">
+                                --><!--Start Button image-->                                
+                                <!--<Button Command="{Binding Nav_To_SignUpPage_Command}"  Style="{StaticResource Boldlable}" FontFamily="" FontAttributes="Bold" VerticalOptions="Center" Margin="-5,0,0,-2" Padding="0" Text="{StaticResource GoogleIcon}"  BackgroundColor="Transparent"/>-->
+                                <!--<ImageButton  Style="{StaticResource img}"  Command="{Binding Nav_To_GooglePage_Command}" Source="google.png"  WidthRequest="40" HeightRequest="40" BackgroundColor="Transparent" />
+                                <ImageButton  Style="{StaticResource img}" Command="{Binding Nav_To_FacebookPage_Command}" Source="facebook.png" WidthRequest="40" HeightRequest="40" BackgroundColor="Transparent"  />-->
+                                
+                                <!--<Image Style="{StaticResource img}" Source="google.png"  WidthRequest="40" HeightRequest="40" />
+                                <Image Style="{StaticResource img}" Source="facebook.png" WidthRequest="40" HeightRequest="40" />-->
+                                <!--End Button image--><!--
+                            </StackLayout>-->
+
+
+                        </StackLayout>
+                        <!--End Center Content stacklayout-->
+
+                    </StackLayout>
+                    <!--End Content StackLayout-->
+
+
+
+            </StackLayout>
+            <!--End general stacklayout-->
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d78b7d53b6884459af99e64b1b58a2a5" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.CategoriesT" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.ImageT" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.oldOrder" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.OrderT" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.ProdectT" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.UserT" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.vWCategorieByImage" Width="1.5" PointX="4.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.vWImageTByProdectT" Width="1.5" PointX="6.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.vWOrderTByProdectTAndUserT" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A4F508_MarketApiModel.vWProdectTByCategorieT" Width="1.5" PointX="8.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="DB_A4F508_MarketApiModel.FK_CategoriesT_ImageT" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A4F508_MarketApiModel.FK_ImageT_ProdectT" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A4F508_MarketApiModel.FK_OrderT_ProdectT1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A4F508_MarketApiModel.FK_OrderT_UserT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

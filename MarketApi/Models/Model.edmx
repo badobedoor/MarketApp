@@ -1,0 +1,1114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GdgShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Numberofproducts" Type="int" />
+          <Property Name="totalPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="CategoriesT">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategorieName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImageID" Type="int" />
+          <Property Name="UserApiID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="FavoriteProducts">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="test" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ImageT">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProdectID" Type="int" />
+        </EntityType>
+        <EntityType Name="oldOrder">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdectID" Type="int" />
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="150" />
+          <Property Name="Descriotion" Type="nvarchar(max)" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="CategorieID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="State" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="CancelMassage" Type="nvarchar(max)" />
+          <Property Name="UserApiID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="OrderT">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="UserApiID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ProdectT">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="int" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="UserT">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserApiID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWCart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWCart">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Numberofproducts" Type="int" />
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="int" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="totalPrice" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWCategorieByImage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWCategorieByImage">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+            <PropertyRef Name="CategorieName" />
+            <PropertyRef Name="CategorieNameAR" />
+            <PropertyRef Name="ImagePath" />
+            <PropertyRef Name="ImageTitle" />
+          </Key>
+          <Property Name="CategorieID" Type="int" Nullable="false" />
+          <Property Name="CategorieName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWFavoriteProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWFavoriteProducts">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="int" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWImageTByProdectT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWImageTByProdectT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="ImagePath" />
+            <PropertyRef Name="ImageTitle" />
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWOrderTByProdectTAndUserT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWOrderTByProdectTAndUserT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'GdgShopDB.dbo.vWProdectTByCategorieT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vWProdectTByCategorieT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="CategorieName" />
+            <PropertyRef Name="CategorieNameAR" />
+            <PropertyRef Name="CategorieID" />
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descriotion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DescriotionAR" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="int" />
+          <Property Name="CategorieName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategorieID" Type="int" Nullable="false" />
+          <Property Name="ProdectID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cart_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoriesT_ImageT">
+          <End Role="ImageT" Type="Self.ImageT" Multiplicity="0..1" />
+          <End Role="CategoriesT" Type="Self.CategoriesT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageT">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="CategoriesT">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteProducts_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="FavoriteProducts" Type="Self.FavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="FavoriteProducts">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteProducts_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="FavoriteProducts" Type="Self.FavoriteProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FavoriteProducts">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageT_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="0..1" />
+          <End Role="ImageT" Type="Self.ImageT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="ImageT">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderT_ProdectT1">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="OrderT" Type="Self.OrderT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="OrderT">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderT_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="OrderT" Type="Self.OrderT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OrderT">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GdgShopDBModelStoreContainer">
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriesT" EntityType="Self.CategoriesT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavoriteProducts" EntityType="Self.FavoriteProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageT" EntityType="Self.ImageT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oldOrder" EntityType="Self.oldOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderT" EntityType="Self.OrderT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdectT" EntityType="Self.ProdectT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserT" EntityType="Self.UserT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vWCart" EntityType="Self.vWCart" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWCart].[Numberofproducts] AS [Numberofproducts], 
+    [vWCart].[ProdectID] AS [ProdectID], 
+    [vWCart].[ProdectName] AS [ProdectName], 
+    [vWCart].[ProdectNameAR] AS [ProdectNameAR], 
+    [vWCart].[Descriotion] AS [Descriotion], 
+    [vWCart].[DescriotionAR] AS [DescriotionAR], 
+    [vWCart].[Price] AS [Price], 
+    [vWCart].[Rating] AS [Rating], 
+    [vWCart].[CategorieID] AS [CategorieID], 
+    [vWCart].[ProductsAvailableNum] AS [ProductsAvailableNum], 
+    [vWCart].[UserID] AS [UserID], 
+    [vWCart].[totalPrice] AS [totalPrice]
+    FROM [dbo].[vWCart] AS [vWCart]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWCategorieByImage" EntityType="Self.vWCategorieByImage" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWCategorieByImage].[CategorieID] AS [CategorieID], 
+    [vWCategorieByImage].[CategorieName] AS [CategorieName], 
+    [vWCategorieByImage].[CategorieNameAR] AS [CategorieNameAR], 
+    [vWCategorieByImage].[ImagePath] AS [ImagePath], 
+    [vWCategorieByImage].[ImageTitle] AS [ImageTitle]
+    FROM [dbo].[vWCategorieByImage] AS [vWCategorieByImage]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWFavoriteProducts" EntityType="Self.vWFavoriteProducts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWFavoriteProducts].[ProdectID] AS [ProdectID], 
+    [vWFavoriteProducts].[ProdectName] AS [ProdectName], 
+    [vWFavoriteProducts].[ProdectNameAR] AS [ProdectNameAR], 
+    [vWFavoriteProducts].[Descriotion] AS [Descriotion], 
+    [vWFavoriteProducts].[DescriotionAR] AS [DescriotionAR], 
+    [vWFavoriteProducts].[Price] AS [Price], 
+    [vWFavoriteProducts].[Rating] AS [Rating], 
+    [vWFavoriteProducts].[CategorieID] AS [CategorieID], 
+    [vWFavoriteProducts].[ProductsAvailableNum] AS [ProductsAvailableNum], 
+    [vWFavoriteProducts].[UserID] AS [UserID]
+    FROM [dbo].[vWFavoriteProducts] AS [vWFavoriteProducts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWImageTByProdectT" EntityType="Self.vWImageTByProdectT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWImageTByProdectT].[ProdectName] AS [ProdectName], 
+    [vWImageTByProdectT].[ProdectNameAR] AS [ProdectNameAR], 
+    [vWImageTByProdectT].[Descriotion] AS [Descriotion], 
+    [vWImageTByProdectT].[DescriotionAR] AS [DescriotionAR], 
+    [vWImageTByProdectT].[Price] AS [Price], 
+    [vWImageTByProdectT].[Rating] AS [Rating], 
+    [vWImageTByProdectT].[ProductsAvailableNum] AS [ProductsAvailableNum], 
+    [vWImageTByProdectT].[ImagePath] AS [ImagePath], 
+    [vWImageTByProdectT].[ImageTitle] AS [ImageTitle], 
+    [vWImageTByProdectT].[ProdectID] AS [ProdectID]
+    FROM [dbo].[vWImageTByProdectT] AS [vWImageTByProdectT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWOrderTByProdectTAndUserT" EntityType="Self.vWOrderTByProdectTAndUserT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWOrderTByProdectTAndUserT].[ProdectName] AS [ProdectName], 
+    [vWOrderTByProdectTAndUserT].[ProdectNameAR] AS [ProdectNameAR], 
+    [vWOrderTByProdectTAndUserT].[Descriotion] AS [Descriotion], 
+    [vWOrderTByProdectTAndUserT].[DescriotionAR] AS [DescriotionAR], 
+    [vWOrderTByProdectTAndUserT].[Price] AS [Price], 
+    [vWOrderTByProdectTAndUserT].[Rating] AS [Rating], 
+    [vWOrderTByProdectTAndUserT].[ProductsAvailableNum] AS [ProductsAvailableNum], 
+    [vWOrderTByProdectTAndUserT].[FullName] AS [FullName], 
+    [vWOrderTByProdectTAndUserT].[UserName] AS [UserName], 
+    [vWOrderTByProdectTAndUserT].[Email] AS [Email], 
+    [vWOrderTByProdectTAndUserT].[Phone] AS [Phone], 
+    [vWOrderTByProdectTAndUserT].[City] AS [City], 
+    [vWOrderTByProdectTAndUserT].[State] AS [State], 
+    [vWOrderTByProdectTAndUserT].[Country] AS [Country], 
+    [vWOrderTByProdectTAndUserT].[Address] AS [Address]
+    FROM [dbo].[vWOrderTByProdectTAndUserT] AS [vWOrderTByProdectTAndUserT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vWProdectTByCategorieT" EntityType="Self.vWProdectTByCategorieT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vWProdectTByCategorieT].[ProdectName] AS [ProdectName], 
+    [vWProdectTByCategorieT].[ProdectNameAR] AS [ProdectNameAR], 
+    [vWProdectTByCategorieT].[Descriotion] AS [Descriotion], 
+    [vWProdectTByCategorieT].[DescriotionAR] AS [DescriotionAR], 
+    [vWProdectTByCategorieT].[Price] AS [Price], 
+    [vWProdectTByCategorieT].[Rating] AS [Rating], 
+    [vWProdectTByCategorieT].[ProductsAvailableNum] AS [ProductsAvailableNum], 
+    [vWProdectTByCategorieT].[CategorieName] AS [CategorieName], 
+    [vWProdectTByCategorieT].[CategorieNameAR] AS [CategorieNameAR], 
+    [vWProdectTByCategorieT].[CategorieID] AS [CategorieID], 
+    [vWProdectTByCategorieT].[ProdectID] AS [ProdectID]
+    FROM [dbo].[vWProdectTByCategorieT] AS [vWProdectTByCategorieT]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Cart_ProdectT" Association="Self.FK_Cart_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectT" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_UserT" Association="Self.FK_Cart_UserT">
+            <End Role="UserT" EntitySet="UserT" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoriesT_ImageT" Association="Self.FK_CategoriesT_ImageT">
+            <End Role="ImageT" EntitySet="ImageT" />
+            <End Role="CategoriesT" EntitySet="CategoriesT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteProducts_ProdectT" Association="Self.FK_FavoriteProducts_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectT" />
+            <End Role="FavoriteProducts" EntitySet="FavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteProducts_UserT" Association="Self.FK_FavoriteProducts_UserT">
+            <End Role="UserT" EntitySet="UserT" />
+            <End Role="FavoriteProducts" EntitySet="FavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageT_ProdectT" Association="Self.FK_ImageT_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectT" />
+            <End Role="ImageT" EntitySet="ImageT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderT_ProdectT1" Association="Self.FK_OrderT_ProdectT1">
+            <End Role="ProdectT" EntitySet="ProdectT" />
+            <End Role="OrderT" EntitySet="OrderT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderT_UserT" Association="Self.FK_OrderT_UserT">
+            <End Role="UserT" EntitySet="UserT" />
+            <End Role="OrderT" EntitySet="OrderT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GdgShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Numberofproducts" Type="Int32" />
+          <Property Name="totalPrice" Type="Int32" />
+          <NavigationProperty Name="ProdectT" Relationship="Self.FK_Cart_ProdectT" FromRole="Cart" ToRole="ProdectT" />
+          <NavigationProperty Name="UserT" Relationship="Self.FK_Cart_UserT" FromRole="Cart" ToRole="UserT" />
+        </EntityType>
+        <EntityType Name="CategoriesT">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategorieName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageID" Type="Int32" />
+          <Property Name="UserApiID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ImageT" Relationship="Self.FK_CategoriesT_ImageT" FromRole="CategoriesT" ToRole="ImageT" />
+        </EntityType>
+        <EntityType Name="FavoriteProduct">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="test" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ProdectT" Relationship="Self.FK_FavoriteProducts_ProdectT" FromRole="FavoriteProducts" ToRole="ProdectT" />
+          <NavigationProperty Name="UserT" Relationship="Self.FK_FavoriteProducts_UserT" FromRole="FavoriteProducts" ToRole="UserT" />
+        </EntityType>
+        <EntityType Name="ImageT">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectID" Type="Int32" />
+          <NavigationProperty Name="CategoriesTs" Relationship="Self.FK_CategoriesT_ImageT" FromRole="ImageT" ToRole="CategoriesT" />
+          <NavigationProperty Name="ProdectT" Relationship="Self.FK_ImageT_ProdectT" FromRole="ImageT" ToRole="ProdectT" />
+        </EntityType>
+        <EntityType Name="oldOrder">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdectID" Type="Int32" />
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategorieID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancelMassage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserApiID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderT">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserApiID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProdectT" Relationship="Self.FK_OrderT_ProdectT1" FromRole="OrderT" ToRole="ProdectT" />
+          <NavigationProperty Name="UserT" Relationship="Self.FK_OrderT_UserT" FromRole="OrderT" ToRole="UserT" />
+        </EntityType>
+        <EntityType Name="ProdectT">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="Int32" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_ProdectT" FromRole="ProdectT" ToRole="Cart" />
+          <NavigationProperty Name="FavoriteProducts" Relationship="Self.FK_FavoriteProducts_ProdectT" FromRole="ProdectT" ToRole="FavoriteProducts" />
+          <NavigationProperty Name="ImageTs" Relationship="Self.FK_ImageT_ProdectT" FromRole="ProdectT" ToRole="ImageT" />
+          <NavigationProperty Name="OrderTs" Relationship="Self.FK_OrderT_ProdectT1" FromRole="ProdectT" ToRole="OrderT" />
+        </EntityType>
+        <EntityType Name="UserT">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserApiID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_UserT" FromRole="UserT" ToRole="Cart" />
+          <NavigationProperty Name="FavoriteProducts" Relationship="Self.FK_FavoriteProducts_UserT" FromRole="UserT" ToRole="FavoriteProducts" />
+          <NavigationProperty Name="OrderTs" Relationship="Self.FK_OrderT_UserT" FromRole="UserT" ToRole="OrderT" />
+        </EntityType>
+        <EntityType Name="vWCart">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="Numberofproducts" Type="Int32" />
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="Int32" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="totalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vWCategorieByImage">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+            <PropertyRef Name="CategorieName" />
+            <PropertyRef Name="CategorieNameAR" />
+            <PropertyRef Name="ImagePath" />
+            <PropertyRef Name="ImageTitle" />
+          </Key>
+          <Property Name="CategorieID" Type="Int32" Nullable="false" />
+          <Property Name="CategorieName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vWFavoriteProduct">
+          <Key>
+            <PropertyRef Name="ProdectID" />
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="CategorieID" Type="Int32" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="UserID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vWImageTByProdectT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="ImagePath" />
+            <PropertyRef Name="ImageTitle" />
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vWOrderTByProdectTAndUserT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vWProdectTByCategorieT">
+          <Key>
+            <PropertyRef Name="ProdectName" />
+            <PropertyRef Name="ProdectNameAR" />
+            <PropertyRef Name="Descriotion" />
+            <PropertyRef Name="DescriotionAR" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="CategorieName" />
+            <PropertyRef Name="CategorieNameAR" />
+            <PropertyRef Name="CategorieID" />
+            <PropertyRef Name="ProdectID" />
+          </Key>
+          <Property Name="ProdectName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProdectNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescriotionAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="ProductsAvailableNum" Type="Int32" />
+          <Property Name="CategorieName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategorieNameAR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategorieID" Type="Int32" Nullable="false" />
+          <Property Name="ProdectID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cart_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoriesT_ImageT">
+          <End Role="ImageT" Type="Self.ImageT" Multiplicity="0..1" />
+          <End Role="CategoriesT" Type="Self.CategoriesT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageT">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="CategoriesT">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteProducts_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="FavoriteProducts" Type="Self.FavoriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="FavoriteProducts">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteProducts_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="FavoriteProducts" Type="Self.FavoriteProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FavoriteProducts">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageT_ProdectT">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="0..1" />
+          <End Role="ImageT" Type="Self.ImageT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="ImageT">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderT_ProdectT1">
+          <End Role="ProdectT" Type="Self.ProdectT" Multiplicity="1" />
+          <End Role="OrderT" Type="Self.OrderT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdectT">
+              <PropertyRef Name="ProdectID" />
+            </Principal>
+            <Dependent Role="OrderT">
+              <PropertyRef Name="ProdectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderT_UserT">
+          <End Role="UserT" Type="Self.UserT" Multiplicity="1" />
+          <End Role="OrderT" Type="Self.OrderT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserT">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OrderT">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GdgShopDBEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carts" EntityType="Self.Cart" />
+          <EntitySet Name="CategoriesTs" EntityType="Self.CategoriesT" />
+          <EntitySet Name="FavoriteProducts" EntityType="Self.FavoriteProduct" />
+          <EntitySet Name="ImageTs" EntityType="Self.ImageT" />
+          <EntitySet Name="oldOrders" EntityType="Self.oldOrder" />
+          <EntitySet Name="OrderTs" EntityType="Self.OrderT" />
+          <EntitySet Name="ProdectTs" EntityType="Self.ProdectT" />
+          <EntitySet Name="UserTs" EntityType="Self.UserT" />
+          <EntitySet Name="vWCarts" EntityType="Self.vWCart" />
+          <EntitySet Name="vWCategorieByImages" EntityType="Self.vWCategorieByImage" />
+          <EntitySet Name="vWFavoriteProducts" EntityType="Self.vWFavoriteProduct" />
+          <EntitySet Name="vWImageTByProdectTs" EntityType="Self.vWImageTByProdectT" />
+          <EntitySet Name="vWOrderTByProdectTAndUserTs" EntityType="Self.vWOrderTByProdectTAndUserT" />
+          <EntitySet Name="vWProdectTByCategorieTs" EntityType="Self.vWProdectTByCategorieT" />
+          <AssociationSet Name="FK_Cart_ProdectT" Association="Self.FK_Cart_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectTs" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_UserT" Association="Self.FK_Cart_UserT">
+            <End Role="UserT" EntitySet="UserTs" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoriesT_ImageT" Association="Self.FK_CategoriesT_ImageT">
+            <End Role="ImageT" EntitySet="ImageTs" />
+            <End Role="CategoriesT" EntitySet="CategoriesTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteProducts_ProdectT" Association="Self.FK_FavoriteProducts_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectTs" />
+            <End Role="FavoriteProducts" EntitySet="FavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteProducts_UserT" Association="Self.FK_FavoriteProducts_UserT">
+            <End Role="UserT" EntitySet="UserTs" />
+            <End Role="FavoriteProducts" EntitySet="FavoriteProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageT_ProdectT" Association="Self.FK_ImageT_ProdectT">
+            <End Role="ProdectT" EntitySet="ProdectTs" />
+            <End Role="ImageT" EntitySet="ImageTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderT_ProdectT1" Association="Self.FK_OrderT_ProdectT1">
+            <End Role="ProdectT" EntitySet="ProdectTs" />
+            <End Role="OrderT" EntitySet="OrderTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderT_UserT" Association="Self.FK_OrderT_UserT">
+            <End Role="UserT" EntitySet="UserTs" />
+            <End Role="OrderT" EntitySet="OrderTs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GdgShopDBModelStoreContainer" CdmEntityContainer="GdgShopDBEntity">
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="GdgShopDBModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Numberofproducts" ColumnName="Numberofproducts" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriesTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.CategoriesT">
+              <MappingFragment StoreEntitySet="CategoriesT">
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="CategorieName" ColumnName="CategorieName" />
+                <ScalarProperty Name="CategorieNameAR" ColumnName="CategorieNameAR" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="UserApiID" ColumnName="UserApiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavoriteProducts">
+            <EntityTypeMapping TypeName="GdgShopDBModel.FavoriteProduct">
+              <MappingFragment StoreEntitySet="FavoriteProducts">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="test" ColumnName="test" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.ImageT">
+              <MappingFragment StoreEntitySet="ImageT">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oldOrders">
+            <EntityTypeMapping TypeName="GdgShopDBModel.oldOrder">
+              <MappingFragment StoreEntitySet="oldOrder">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CancelMassage" ColumnName="CancelMassage" />
+                <ScalarProperty Name="UserApiID" ColumnName="UserApiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.OrderT">
+              <MappingFragment StoreEntitySet="OrderT">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserApiID" ColumnName="UserApiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdectTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.ProdectT">
+              <MappingFragment StoreEntitySet="ProdectT">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.UserT">
+              <MappingFragment StoreEntitySet="UserT">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UserApiID" ColumnName="UserApiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWCarts">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWCart">
+              <MappingFragment StoreEntitySet="vWCart">
+                <ScalarProperty Name="Numberofproducts" ColumnName="Numberofproducts" />
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWCategorieByImages">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWCategorieByImage">
+              <MappingFragment StoreEntitySet="vWCategorieByImage">
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="CategorieName" ColumnName="CategorieName" />
+                <ScalarProperty Name="CategorieNameAR" ColumnName="CategorieNameAR" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWFavoriteProducts">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWFavoriteProduct">
+              <MappingFragment StoreEntitySet="vWFavoriteProducts">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWImageTByProdectTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWImageTByProdectT">
+              <MappingFragment StoreEntitySet="vWImageTByProdectT">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWOrderTByProdectTAndUserTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWOrderTByProdectTAndUserT">
+              <MappingFragment StoreEntitySet="vWOrderTByProdectTAndUserT">
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vWProdectTByCategorieTs">
+            <EntityTypeMapping TypeName="GdgShopDBModel.vWProdectTByCategorieT">
+              <MappingFragment StoreEntitySet="vWProdectTByCategorieT">
+                <ScalarProperty Name="ProdectID" ColumnName="ProdectID" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="ProdectName" ColumnName="ProdectName" />
+                <ScalarProperty Name="ProdectNameAR" ColumnName="ProdectNameAR" />
+                <ScalarProperty Name="Descriotion" ColumnName="Descriotion" />
+                <ScalarProperty Name="DescriotionAR" ColumnName="DescriotionAR" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ProductsAvailableNum" ColumnName="ProductsAvailableNum" />
+                <ScalarProperty Name="CategorieName" ColumnName="CategorieName" />
+                <ScalarProperty Name="CategorieNameAR" ColumnName="CategorieNameAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

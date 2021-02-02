@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Add New Image";
+}
+<div class="container">
+    <h2>Add New Image</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form id="AddNewImage" method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+                @*@using (Html.BeginForm("SaveData", "Images", FormMethod.Post, new {  id = "target" }))*@
+
+                <label>Title</label><br />
+                <input id="ImageTitle" name="ImageTitle" class="form-control" placeholder="Image Name" />
+
+                <label>Image Upload</label><br />
+                <input id="ImageUpload" name="ImageUpload" class="form-control" type="file" />
+
+                <br /><br />
+
+                <button class="btn btn-primary">Add</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //$(function () {
+    //    $("#target").submit(function (event) {
+    //        event.preventDefault();
+    //        AjaxPost(this);
+    //    });
+    //});
+
+    function AjaxPost(formData) {
+        var ajaxConfig = {
+            type: "POST",
+            url: "/ProdetesImages/SaveData",
+            data: new FormData(formData),
+            success: function (result) {
+                alert(result);
+                window.location.href = "/ProdetesImages/AddNewImage";
+            }
+        }
+        if ($(formData).attr('enctype') == "multipart/form-data") {
+            ajaxConfig["contentType"] = false;
+            ajaxConfig["processData"] = false;
+        }
+        $.ajax(ajaxConfig);
+        return false;
+    }
+</script>
+

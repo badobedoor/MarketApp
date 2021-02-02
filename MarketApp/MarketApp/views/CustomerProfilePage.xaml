@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:border1="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             x:Class="MarketApp.views.CustomerProfilePage"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             x:Name="Page">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            
+            <!--Start general stacklayout-->
+            <StackLayout >
+                <!--Start general grid-->
+                <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                    <!--Start background Image-->
+                    <Image Style="{StaticResource img}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Source="shop.jpg"  Grid.Column="0" Grid.Row="0"  />
+                    <!--End background Image-->
+
+                    <!--Start background color-->
+                    <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".95"/>
+                    <!--End background color-->
+
+                    <!--Start Content StackLayout-->
+                    <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                        <!--Start nav bar StackLayout-->
+                        <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                            <Button x:Name="mnueBTN" Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}" Clicked="mnueBTN_Clicked"/>
+                            <Label Style="{StaticResource Headerlable}" Text="Profile" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  ShopPasktIcon}" HorizontalOptions="End"  FontSize="23" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                        </StackLayout>
+                        <!--End nav bar StackLayout-->
+
+                        <!--Start heder Body lable -->
+                        <Label Style="{StaticResource Boldlable}" Text="Your Profile!"  FontSize="25" Margin="0,30,0,-20" />
+                        <!--End heder Body lable-->
+
+                        <!--Start Center Content stacklayout-->
+                        <StackLayout Spacing="0"  VerticalOptions="CenterAndExpand" >
+
+                            <!--start Grid Entry Full name  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}" >
+                                <inputLayout:SfTextInputLayout  Hint="Full Name"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff" Text="{Binding FullName ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Full name-->
+
+                            <!--start Grid Entry Email  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Email"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff" Text="{Binding Email ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Email-->
+
+                            <!--start Grid Entry Phone  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Phone"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff" Text="{Binding phone ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Phone-->
+
+
+                            <!--Start Adress Box-->
+                            <border1:SfBorder x:Name="AdressNavgation" BorderColor="Black" BorderWidth="1" BackgroundColor="#E7FCFE"   HeightRequest="80" Margin="20,35" >
+                                <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Margin="20,15,10,5" Spacing="10">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Start">
+                                        <Label IsVisible="{Binding AdressBoxItemShow}" Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource LocationIcon}" VerticalOptions="Center" HorizontalOptions="Start" FontSize="15" TextColor="Black" WidthRequest="15" Margin="0,5,0,0"/>
+                                        <Label Style="{StaticResource Normallable}" Text="{Binding FullAddress,Mode=TwoWay}" FontSize="17"  HorizontalOptions="Start" VerticalOptions="Start" TextColor="#1E1C1C" />
+                                    </StackLayout>
+
+                                    <Label Style="{StaticResource Normallable}" Text="Tap To Change Youre Address"  FontSize="13" HorizontalOptions="Center" VerticalOptions="Start" TextColor="#7B7B7B" Margin="15,0,0,0" />
+                                </StackLayout>
+
+                            </border1:SfBorder>
+                            <!--End Adress Box-->
+
+                        </StackLayout>
+                        <!--End Center Content stacklayout-->
+
+                        <!--Start Save Button-->
+                        <StackLayout VerticalOptions="End">
+                            <Button Style="{StaticResource bigButton}" Text="Save" Command="{Binding PutUserInformationCommand}"/>
+                        </StackLayout>
+                        <!--End Save Button-->
+
+                        <!--Start foter navigation-->
+                        <StackLayout VerticalOptions="Center"/>
+                        <StackLayout Spacing="0">
+                            <BoxView Style="{StaticResource lineBoxView}"  />
+                            <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                                <StackLayout   Spacing="0" >
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                                    <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                                </StackLayout>
+
+                                <StackLayout   Spacing="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                                    <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                                </StackLayout >
+
+                                <StackLayout IsEnabled="False" Spacing="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                                    <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                                </StackLayout>
+
+                                <StackLayout  Spacing="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                                    <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                                </StackLayout>
+
+                                <StackLayout    Spacing="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                                    <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--End foter navigation-->
+
+
+                    </StackLayout>
+                    <!--End Content StackLayout-->
+
+                </Grid>
+                <!--End general grid-->
+
+            </StackLayout>
+            <!--End general stacklayout-->
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

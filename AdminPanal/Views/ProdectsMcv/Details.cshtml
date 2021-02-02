@@ -1,0 +1,84 @@
+﻿
+@model AdminPanal.Models.ProdectT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProdectT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdectNameAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdectNameAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsAvailableNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductsAvailableNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategorieID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategorieID)
+        </dd>
+
+        <dt style="height: 120px;">
+            @Html.DisplayNameFor(model => model.Descriotion)
+        </dt>
+
+        <dd style="height: 120px;">
+            @Html.DisplayFor(model => model.Descriotion)
+        </dd>
+
+        <dt style="height: 120px;">
+            @Html.DisplayNameFor(model => model.DescriotionAR)
+        </dt>
+
+        <dd style="height: 120px;">
+            @Html.DisplayFor(model => model.DescriotionAR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

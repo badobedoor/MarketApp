@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="MarketApp.views.CheckoutPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        
+
+            <!--Start general stacklayout-->
+            <StackLayout >
+                <!--Start general grid-->
+                <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                    <!--Start background Image-->
+                    <Image Style="{StaticResource img}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Source="shop.jpg"  Grid.Column="0" Grid.Row="0"  />
+                    <!--End background Image-->
+
+                    <!--Start background color-->
+                    <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".95"/>
+                    <!--End background color-->
+
+                    <!--Start Content StackLayout-->
+                    <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                        <!--Start nav bar StackLayout-->
+                        <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                        <Button x:Name="mnueBTN" Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}"  Clicked="mnueBTN_Clicked"/>
+                            <Label Style="{StaticResource Headerlable}" Text="Checkout" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  ShopPasktIcon}" HorizontalOptions="End"  FontSize="23" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                        </StackLayout>
+                        <!--End nav bar StackLayout-->
+
+
+                        <ScrollView>
+                            <!--Start Center Content stacklayout-->
+                        <StackLayout Spacing="0"  VerticalOptions="Start">
+                            
+                            <!--Start Product label-->                            
+                                <StackLayout Orientation="Horizontal" Margin="20,0,0,0">
+                                    <Label Style="{StaticResource FA.solid.LabelStyle}"  Text="{StaticResource ShopIcon}" TextColor="#5aBE66" Margin="0,23,-20,0"/>
+                                    <Label Style="{StaticResource Smalllable}" HorizontalOptions="Start" VerticalOptions="Start" FontSize="25" Text="Product" />
+                                </StackLayout>
+                            <!--End Product label-->
+
+                            <!--Start ScrollView products-->
+                            <ScrollView VerticalOptions="Start"  HeightRequest="200" BackgroundColor="#E7FCFE">
+                                    <syncfusion:SfListView x:Name="ac"  ItemSize="140">
+                                        <syncfusion:SfListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ViewCell>
+
+                                                    <StackLayout VerticalOptions="StartAndExpand">
+                                                        <border:SfBorder BorderColor="Black" BorderWidth="1" BackgroundColor="#fff"   HeightRequest="120" Margin="10,15" >
+                                                        <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="#fff" >
+                                                            <StackLayout  Style="{StaticResource contanerStartStackLayout}" BackgroundColor="#fff">
+                                                                    <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding name}" />
+                                                                    <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding age}"/>
+                                                                    <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End" HorizontalOptions="Start">
+
+                                                                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="0,0,0,10">
+                                                                            <Label Style="{StaticResource FA.solid.LabelStyle}"  Text="{StaticResource minusIcon}"   TextColor="{StaticResource  Darkgraycolor }" WidthRequest="30" FontSize="20"   Margin="0,5,0,0"/>
+                                                                            <Label Style="{StaticResource listViewPriceLabel}" FontSize="25" Text="2"  TextColor="{StaticResource Darkgraycolor }" HorizontalOptions="Center" Margin="0,0,10,0"/>
+                                                                            <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource PlusIcon}"  TextColor="{StaticResource Darkgraycolor }" WidthRequest="30" FontSize="20" Margin="0,5,0,0"  />
+                                                                        </StackLayout>
+
+                                                                    </StackLayout>
+                                                                </StackLayout>
+                                                                <StackLayout VerticalOptions="End" HorizontalOptions="End">
+                                                                    <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource DeleteIcon}" TextColor="#333030" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,0,10"/>
+                                                                </StackLayout>
+                                                                <StackLayout VerticalOptions="Fill" HorizontalOptions="End">
+                                                                    <Image Style="{StaticResource listViewimg}" Aspect="AspectFit" Source="{Binding imgclass}"/>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </border:SfBorder>
+                                                        <!--End list view -->
+
+                                                    </StackLayout>
+                                                </ViewCell>
+                                            </DataTemplate>
+                                        </syncfusion:SfListView.ItemTemplate>
+                                    </syncfusion:SfListView>
+                                </ScrollView>
+                            <!--End ScrollView products-->
+
+                            <!--Start address label-->
+                            <StackLayout Orientation="Horizontal" Margin="25,0,0,0">
+                                    <Label Style="{StaticResource FA.solid.LabelStyle}"  Text="{StaticResource LocationIcon}" TextColor="#5aBE66" Margin="0,23,-20,0"/>
+                                    <Label Style="{StaticResource Smalllable}" HorizontalOptions="Start" VerticalOptions="Start" FontSize="25" Text="Shipping" />
+                                </StackLayout>
+                            <!--End address label-->
+
+                            <!--start Grid Entry Name  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}" >
+                                <inputLayout:SfTextInputLayout  Hint="Name"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End  Grid Entry Name-->
+
+                            <!--start Grid Entry Phone  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Phone"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End  Grid Entry Phone-->
+
+                                <!--start Grid Entry Address  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Address"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End  Grid Entry Address-->
+                            
+                            <!--Start Zop Code & Contry-->
+                                <StackLayout Orientation="Horizontal" Spacing="25">
+                                <!--start Grid Entry ZOP Code  -->
+                                    <Grid Style="{StaticResource gridOneRowOneColme}">
+                                        <inputLayout:SfTextInputLayout  Hint="ZOP Code"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff" WidthRequest="150" Margin="30,0,25,0" >
+                                            <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                                <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                            </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                            <Entry TextColor="#fff"/>
+
+                                        </inputLayout:SfTextInputLayout>
+                                    </Grid>
+                                <!--End  Grid Entry ZOP Code-->
+
+                                <!--start Grid Entry ZOP Code  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="ZOP Code"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff" WidthRequest="150" Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                                <!--End  Grid Entry ZOP Code-->
+                            </StackLayout>
+                            <!--End Zop Code & Contry-->
+
+
+                            <!--start Grid City  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="City"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End  Grid Entry City-->
+
+                            <!--start Grid Entry State/Province  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="State/Province"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End  Grid Entry State/Province-->
+
+                            
+                            <!--Start Payment Label-->
+                                <StackLayout Orientation="Horizontal" Margin="25,0,0,0">
+                                    <Label Style="{StaticResource FA.solid.LabelStyle}"  Text="{StaticResource PaymentIcon}" TextColor="#5aBE66" Margin="0,23,-20,0"/>
+                                    <Label Style="{StaticResource Smalllable}" HorizontalOptions="Start" VerticalOptions="Start" FontSize="25" Text="Payment" />
+                                </StackLayout>
+                            <!--End Payment Label-->
+
+                            <!--start Grid Card Type  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="Card Type"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End Grid Card Type  -->
+
+                            <!--start Grid Name on Card  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="Name on Card"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End Grid Name on Card  -->
+
+                            <!--start Grid Card Number  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="Card Number"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                            <!--End Grid Card Number  -->
+
+                            <!--Start Cvv & Expired Date-->
+                              <StackLayout Orientation="Horizontal" Spacing="25">
+                                <!--start Grid Entry CVV  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="CVV"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff" WidthRequest="150" Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                                <!--End  Grid Entry CVV-->
+
+                                <!--start Grid Entry Expired Date  -->
+                                <Grid Style="{StaticResource gridOneRowOneColme}">
+                                    <inputLayout:SfTextInputLayout  Hint="Expired Date"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff" WidthRequest="150" Margin="30,0,25,0" >
+                                        <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                        </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <Entry TextColor="#fff"/>
+
+                                    </inputLayout:SfTextInputLayout>
+                                </Grid>
+                                <!--End  Grid Entry Expired Date-->
+                            </StackLayout>
+                            <!--End Cvv & Expired Date-->
+
+
+                        </StackLayout>
+                            <!--End Center Content stacklayout-->
+                        </ScrollView>
+
+
+                        <!--Start Save Button-->
+                        <StackLayout VerticalOptions="End">
+                            <Button Style="{StaticResource bigButton}" Text="Submit Order"/>
+                        </StackLayout>
+                        <!--End Save Button-->
+
+                    </StackLayout>
+                    <!--End Content StackLayout-->
+
+                </Grid>
+                <!--End general grid-->
+
+            </StackLayout>
+            <!--End general stacklayout-->
+
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.WishlistPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackGroundColor}"
+             x:Name="Page">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout Spacing="0">
+
+            <!--Start background color-->
+                <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".97"/>
+                <!--End background color-->
+
+                <!--Start Content StackLayout-->
+                <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                    <!--Start nav bar StackLayout-->
+
+                    <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0" Margin="0,0,0,2">
+                        <Button  Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  arrowleft}" Margin="0,0,10,0" Command="{Binding Nav_To_lastPage_Command}" />
+                        <Label Style="{StaticResource Headerlable}" Text="Wishlist" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  Search}" HorizontalOptions="End"  FontSize="23" Margin="0,0,15,0" RotationY="180" Command="{Binding Nav_To_Search_Command}"/>
+                    </StackLayout>
+                    <!--End nav bar StackLayout-->
+                    <ScrollView>
+                        <!--Start list view -->
+                        <syncfusion:SfListView x:Name="ac"  ItemSize="120" ItemsSource="{Binding Favoriteproducts}" ItemSpacing="0" >
+                        <syncfusion:SfListView.ItemTemplate  >
+                                <DataTemplate>
+                                    <ViewCell >
+
+                                    <StackLayout VerticalOptions="StartAndExpand" Spacing="0"  >
+                                        <border:SfBorder BorderColor="#DCD8D8" BorderWidth="1" HeightRequest="120"  Margin="0"  >
+                                            <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="#fff" >
+                                                <StackLayout VerticalOptions="Fill" HorizontalOptions="Start">
+                                                    <Image Style="{StaticResource listViewWishlistimg}" Source="makeup.jpg"/>
+                                                </StackLayout>
+                                                <StackLayout VerticalOptions="Start" HorizontalOptions="Start"  >
+                                                    <StackLayout  Style="{StaticResource contanerStartStackLayout}"  VerticalOptions="Start" Margin="0,5,0,0">
+                                                        <Label Style="{StaticResource  Boldlable}" TextColor="Black" Text="Baby Srk adodo" FontSize="18"  />
+                                                        <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" TextColor="#5272C5" FontSize="18"/>
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="Center"/>
+                                                    <StackLayout VerticalOptions="End" HorizontalOptions="End" Orientation="Horizontal"   Margin="0,0,0,10" >
+                                                        <Button   Text="Buy Now" Style="{StaticResource WishlistbigButton}" />
+                                                        <!--<Button Style="{StaticResource WishlistIconButton}"  Text="{StaticResource DeleteIcon}" />-->
+                                                        <Label Style="{StaticResource WishlistIconLabel}" Text="{StaticResource DeleteIcon}">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </border:SfBorder>
+                                    </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        <!--End list view -->
+                                        
+                    </ScrollView>
+
+                    <!--Start foter navigation-->
+                    <StackLayout VerticalOptions="Center"></StackLayout>
+                <StackLayout Spacing="0">
+                    <BoxView Style="{StaticResource lineBoxView}"   />
+                    <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                        <StackLayout  Spacing="0" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                            <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                        </StackLayout>
+
+                        <StackLayout   IsEnabled="False" Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                            <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                        </StackLayout >
+
+                        <StackLayout  Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                            <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                        </StackLayout>
+
+                        <StackLayout  Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                            <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                        </StackLayout>
+
+                        <StackLayout   Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                            <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                    
+                    <!--End foter navigation-->
+                    
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content> 
+</ContentPage>
+    
+    
+    <!--<Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource DeleteIcon}" TextColor="#333030" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,0,10">
+    <Label.GestureRecognizers>
+        <TapGestureRecognizer  Command="{Binding Path=BindingContext.DeleteFavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+    </Label.GestureRecognizers>
+</Label>-->

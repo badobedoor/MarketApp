@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:converters="clr-namespace:MarketApp"
+             x:Class="MarketApp.views.CategoriesPage"
+              x:Name="Page"
+	         xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackGroundColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageFileToImageSourceConverter x:Key="ImageFileToImageSourceConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--xmlns:vm="clr-namespace:MarketApp.ViewModels"-->
+    <!--<ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>-->
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+           
+                <!--Start Content StackLayout-->
+        <StackLayout Spacing="0" >
+            <!--Start nav bar StackLayout-->
+
+            <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0" HeightRequest="65">
+                <Button  Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  arrowleft}" Margin="0,0,10,0" Command="{Binding Nav_To_lastPage_Command}" />
+                <Label Style="{StaticResource Headerlable}" Text="Binding Name" />
+                <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  Search}" HorizontalOptions="End"  FontSize="23" Margin="0,0,15,0" RotationY="180" Command="{Binding Nav_To_Search_Command}"/>
+            </StackLayout>
+            <!--End nav bar StackLayout-->
+
+            <!--Start background Image-->                
+            <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"  >
+                <Image Grid.Column="0" Grid.Row="0" Source="categoreBaneer.jpg"  Style="{StaticResource img}" Aspect="Fill" VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="240"    />
+                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Fill" BackgroundColor="Black" HeightRequest="240"  Opacity="0.55" />
+                <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource Boldlable}" FontSize="20" Text="Browse Through Milion Of Products in Many Category"   HorizontalTextAlignment="Center" WidthRequest="300" HorizontalOptions="Center"  Margin="30,50,20,20"/>
+                <!--<ffimageloading:CachedImage x:Name="sts" Source="http://loremflickr.com/600/600/nature?filename=simple.jpg"  DownsampleToViewSize="true" Style="{StaticResource img}" Aspect="Fill" VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="240"   Opacity="0.5"  />-->
+            </Grid>
+            <!--End background Image-->
+
+
+
+        <ScrollView>
+            <StackLayout>
+                <!--Start list view -->
+                        <syncfusion:SfListView  ItemSize="180" ItemsSource="{Binding captialvWCategorieByImageProp}"  >
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.LayoutManager>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <border:SfBorder BorderColor="White" BorderWidth="1" BackgroundColor="#E7FCFE"   HeightRequest="80" Margin="10,15"  CornerRadius="15">
+
+                                            <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="10" >
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.CategorieItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                </StackLayout.GestureRecognizers>
+                                                <StackLayout VerticalOptions="StartAndExpand" Padding="15,25,15,5">
+                                                <Image  Style="{StaticResource listViewimg}" Source="cafe.png" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50"/> 
+                                            <!--<ffimageloading:CachedImage DownsampleToViewSize="true"  Style="{StaticResource listViewimg}" Source="{Binding ImagePath}" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50"/>-->
+                                                    <!--{Binding ImagePath, StringFormat= 'C:\\Users\\Ans\\source\\repos\\MarketApp2\\AdminPanal\\UploadedFiles\\\{0\}'} "-->
+                                                    <!--{Binding ImagePath ,Converter={StaticResource ImageFileToImageSourceConverter}} "-->
+                                                </StackLayout>
+                                                <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="0,0,0,15">
+                                                    <Label Style="{StaticResource  listViewProdectLabel}" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding CategorieName}"  Margin="5,0,5,0"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </border:SfBorder>
+
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        <!--End list view -->
+                    </StackLayout>
+
+
+            </ScrollView>
+            
+            
+            <!--Start foter navigation-->            
+            <StackLayout VerticalOptions="Center"></StackLayout>
+            <StackLayout Spacing="0">
+                <BoxView Style="{StaticResource lineBoxView}" />
+                <StackLayout VerticalOptions="EndAndExpand" BackgroundColor="White" HeightRequest="55" Orientation="Horizontal" Padding="20,7,20,0" Spacing="20">
+                    <StackLayout  Spacing="0" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CartPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  ShopIcon}" Margin="13,0,0,0"  TextColor="{Binding Cart_icon_color}"/>
+                        <Label Text="Cart" Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding Cart_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout   Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_WishlistPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  FullHeartIcon}" Margin="13,0,0,0"  TextColor="{Binding wishlist_icon_color}"/>
+                        <Label Text="Withlist"  Style="{StaticResource LabelStyle.homeText}"  TextColor="{Binding wishlist_icon_color}"/>
+                    </StackLayout >
+
+                    <StackLayout  Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CustomerProfilePage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  UserIcon}" FontSize="25" Margin="20,-5,0,5" TextColor="{Binding myaccount_icon_color}"/>
+                        <Label Text="My account"   Style="{StaticResource LabelStyle.homeText}" FontSize="10" TextColor="{Binding myaccount_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout  IsEnabled="False" Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  MuneIcon}" TextColor="{Binding Categories_icon_color}" />
+                        <Label Text="Category"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Categories_icon_color}"/>
+                    </StackLayout>
+
+                    <StackLayout   Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_Homepage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                        </StackLayout.GestureRecognizers>
+                        <Label Style="{StaticResource FA.solid.LabelStyle.homeIcon}" Text="{StaticResource  HomeIcon}" TextColor="{Binding Home_icon_color}"/>
+                        <Label Text="Home"  Style="{StaticResource LabelStyle.homeText}" TextColor="{Binding Home_icon_color}"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <!--End foter navigation-->
+            
+            
+        </StackLayout>
+        <!--End Content StackLayout-->
+
+
+      
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="FFImageLoading.Forms.Sample.Pages.XamlSimpleExamplePage"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="Basic XAML Example">
+    <ContentPage.Content>
+        <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			WidthRequest="300" HeightRequest="300"
+			DownsampleToViewSize="true"
+			Source = "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+            
+        </ffimageloading:CachedImage>
+    </ContentPage.Content>
+    </PFContentPage>-->

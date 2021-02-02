@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.SearchPagexaml"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBackGroundColor}"
+             x:Name="Page">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--Start general stacklayout-->
+        <StackLayout >
+            <!--Start general grid-->
+            <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                <!--Start background Image-->
+                <Image Style="{StaticResource img}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="800" Source="shop.jpg"  Grid.Column="0" Grid.Row="0"  />
+                <!--End background Image-->
+
+                <!--Start background color-->
+                <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".97"/>
+                <!--End background color-->
+
+                <!--Start Content StackLayout-->
+                <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                    <!--Start nav bar StackLayout-->
+
+                    <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                        <Button x:Name="mnueBTN" Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}" Clicked="mnueBTN_Clicked"/>
+                        <Label Style="{StaticResource Headerlable}" Text="Binding Name" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  ShopPasktIcon}" HorizontalOptions="End"  FontSize="23" />
+                        <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                    </StackLayout>
+                    <!--End nav bar StackLayout-->
+                    <border:SfBorder BorderColor="Gray" BorderWidth="1.5" BackgroundColor="#E7FCFE"   HeightRequest="50" Margin="10,15" >
+                        <SearchBar BackgroundColor="{StaticResource NormalTextColor}" Placeholder="Search" />
+                    </border:SfBorder>
+
+                    <ScrollView>
+                        <!--Start list view -->
+
+                        <syncfusion:SfListView ItemsSource="{Binding ProdectTByCategorieList}"   ItemSize="230">
+                            <syncfusion:SfListView.LayoutManager>
+                                <syncfusion:GridLayout SpanCount="2" />
+                            </syncfusion:SfListView.LayoutManager>
+                            <syncfusion:SfListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <border:SfBorder BorderColor="Black" BorderWidth="1" BackgroundColor="#E7FCFE"   HeightRequest="100" Margin="10,15" >
+
+                                            <StackLayout Style="{StaticResource contanerStackLayout}" BackgroundColor="{StaticResource NormalTextColor}" Orientation="Vertical" Spacing="10">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer  Command="{Binding Path=BindingContext.ProductItemTapped, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                </StackLayout.GestureRecognizers>
+                                                <StackLayout VerticalOptions="StartAndExpand">
+                                                    <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="StartAndExpand" HorizontalOptions="Fill">
+                                                        <Image Style="{StaticResource listViewimg}"  Aspect="AspectFit" Source="makeup.jpg" VerticalOptions="StartAndExpand" HorizontalOptions="Fill" Grid.Column="0" Grid.Row="0"/>
+                                                        <Label Style="{StaticResource FA.solid.LabelStyle}" Text="{StaticResource FullHeartIcon}" TextColor="Gray" HorizontalOptions="End" FontSize="25" VerticalOptions="Fill" Grid.Column="0" Grid.Row="0" WidthRequest="30" Margin="0,5,2,0">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.FavoriteproductsComand, Source={x:Reference Page}}" CommandParameter="{Binding .}"  />
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </Grid>
+                                                </StackLayout>
+                                                <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="10,0,0,0">
+                                                    <Label Style="{StaticResource  listViewProdectLabel}" Text="{Binding ProdectName}" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="End" HorizontalOptions="Start" Padding="10,0,10,10">
+                                                    <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="15" Text="{StaticResource StarIcon}" TextColor="{StaticResource starColor}" WidthRequest="25" HorizontalOptions="Start" Margin="0,3,0,0"/>
+                                                    <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Rating}"  TextColor="{StaticResource starColor}"   HorizontalOptions="StartAndExpand" Margin="0,0,35,0" FontSize="17"/>
+                                                    <Label Style="{StaticResource listViewPriceLabel}" Text="{Binding Price}" HorizontalOptions="End" FontSize="17"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </border:SfBorder>
+
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </syncfusion:SfListView.ItemTemplate>
+                        </syncfusion:SfListView>
+                        
+                        <!--End list view -->
+
+                    </ScrollView>
+                    <!--Start Eroor lable-->
+                    <Label x:Name="EroorMsg" IsVisible="False"/>
+
+                </StackLayout>
+                <!--End Content StackLayout-->
+
+            </Grid>
+            <!--End general grid-->
+
+        </StackLayout>
+        <!--End general stacklayout-->
+    </ContentPage.Content>
+</ContentPage>

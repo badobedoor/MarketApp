@@ -1,0 +1,102 @@
+﻿@model AdminPanal.Models.ProdectT
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Prodect</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProdectName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ProdectName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProdectName, "", new { @class = "text-danger" })
+        </div>
+        @Html.LabelFor(model => model.ProductsAvailableNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ProductsAvailableNum, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProductsAvailableNum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProdectNameAR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.ProdectNameAR, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProdectNameAR, "", new { @class = "text-danger" })
+        </div>
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descriotion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Descriotion, new { htmlAttributes = new { @class = "form-control" }, cols = 35, @rows = 3, })
+            @*@Html.EditorFor(model => model.Descriotion, new { htmlAttributes = new { @class = "form-control", rows = "20" } })*@
+            @Html.ValidationMessageFor(model => model.Descriotion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DescriotionAR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10" style="height: 120px;">
+            @Html.TextAreaFor(model => model.DescriotionAR, new { htmlAttributes = new { @class = "form-control" }, cols = 35, @rows = 3, })
+            @*@Html.EditorFor(model => model.DescriotionAR, new { htmlAttributes = new { @class = "form-control", rows = "20", @style = "height: 120px;" } })*@
+            @Html.ValidationMessageFor(model => model.DescriotionAR, "", new { @class = "text-break" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategorieID, "CategorieID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CategorieID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategorieID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 text-success">
+            @ViewBag.FileStatus
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="continue" class="btn btn-primary" />
+        </div>
+    </div>
+
+
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

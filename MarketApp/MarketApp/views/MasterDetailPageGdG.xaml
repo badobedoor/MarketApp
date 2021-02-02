@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarketApp.views.MasterDetailPageGdG"
+             xmlns:pages="clr-namespace:MarketApp.views"
+              xmlns:vm="clr-namespace:MarketApp.ViewModels"
+            NavigationPage.HasNavigationBar="False"                  
+            x:Name="Page">
+
+    <MasterDetailPage.BindingContext>
+        <vm:MainViewModel/>
+    </MasterDetailPage.BindingContext>
+    <MasterDetailPage.Master>
+        <ContentPage  Title="master">
+            <ContentPage.Content>
+                <StackLayout BackgroundColor="#06353A" Spacing="0">
+                    <StackLayout VerticalOptions="Start"  HeightRequest="200" BackgroundColor="#2C7980" Spacing="15">
+                        <Image Style="{StaticResource img}" Source="LogoMakr.png" WidthRequest="100" HeightRequest="70" Margin="0,15,0,5"/>
+                        <Label Style="{StaticResource Normallable}" Text="Ans Bedooor" FontSize="20" TextColor="#56F9A3"/>
+                        <Label Style="{StaticResource Normallable}" Text="Ansbedoor@gmail.com" FontSize="20" TextColor="#BCC6C7"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" Orientation="Horizontal" HeightRequest="70" BackgroundColor="#178D97">
+                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="17" Text="{StaticResource ShopIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="30" HorizontalOptions="Start" Margin="20,3,0,0" VerticalOptions="Center"/>
+                        <Label x:Name="MyOrderButton" Style="{StaticResource Normallable}" Text="My Order" FontSize="17" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="17" Text="{StaticResource LocationIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center" Margin="0,3,0,0"/>
+                        <Label x:Name="MyAdressButton" Style="{StaticResource Normallable}" Text="My Adress" FontSize="17" TextColor="#fff" HorizontalOptions="End"  VerticalOptions="Center"  Margin="0,0,20,0"/>
+                    </StackLayout>
+
+
+                    <StackLayout VerticalOptions="End" Padding="20" Spacing="5" Margin="0,15,0,0">
+                        <!--Start Home link-->
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Spacing="20">
+                            <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="20" Text="{StaticResource HomeIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0"/>
+                            <Label x:Name="HomeButton" Style="{StaticResource Smalllable}" Text="Home" FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <!--End Home link-->
+
+                        <!--Start Categories link-->
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Spacing="20">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer  Command="{Binding Path=BindingContext.Nav_To_CategoriesPage_Command, Source={x:Reference Page}}" CommandParameter="{Binding .}"   />
+                            </StackLayout.GestureRecognizers>
+                            <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="20" Text="{StaticResource MuneIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0"/>
+                            <Label  Style="{StaticResource Smalllable}" Text="Categories" FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <!--End Categories link-->
+
+                        <!--Start My Wishlist link-->
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Spacing="20">
+                            <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="20" Text="{StaticResource FullHeartIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0"/>
+                            <Label x:Name="WishlistBTN" Style="{StaticResource Smalllable}" Text="My Wishlist" FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        </StackLayout>
+                        <!--End My Wishlist link-->
+
+                        <!--Start My Account link-->
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Spacing="20">
+                            <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="20" Text="{StaticResource UserIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0"/>
+                            <Label x:Name="MyAccountBTN" Style="{StaticResource Smalllable}" Text="My Account" FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+
+                        </StackLayout>
+                        <!--End My Account link-->
+
+                        <!--Start Logout link-->
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Spacing="20">
+                            <Label Style="{StaticResource FA.solid.LabelStyle}" FontSize="20" Text="{StaticResource logoutIcon}" TextColor="{StaticResource NormalTextColor}" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0"/>
+                            <Button x:Name="LogoutBTN" Command="{Binding LogoutCommand}"   Style="{StaticResource Smalllable}" Text="Logout"  FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="-5,0,0,-2" Padding="0"   BackgroundColor="Transparent"/>
+                            <!--<Label x:Name="LogoutBTN"  Style="{StaticResource Smalllable}" Text="Logout" FontSize="20" TextColor="#fff" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>-->
+                        </StackLayout>
+                        <!--End Logout link-->
+
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+
+    
+</MasterDetailPage>

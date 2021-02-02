@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:vm="clr-namespace:MarketApp.ViewModels"
+             x:Class="MarketApp.views.CustomerAddressPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+
+            <!--Start general stacklayout-->
+            <StackLayout >
+                <!--Start general grid-->
+                <Grid Style="{StaticResource gridOneRowOneColme}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+                    <!--Start background Image-->
+                    <Image Style="{StaticResource img}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="300" HeightRequest="800" Source="shop.jpg"  Grid.Column="0" Grid.Row="0"  />
+                    <!--End background Image-->
+
+                    <!--Start background color-->
+                    <StackLayout  BackgroundColor="{StaticResource PageBackGroundColor}" Grid.Column="0" Grid.Row="0"   Opacity=".95"/>
+                    <!--End background color-->
+
+                    <!--Start Content StackLayout-->
+                    <StackLayout Spacing="0" Grid.Column="0" Grid.Row="0">
+                        <!--Start nav bar StackLayout-->
+                        <StackLayout Style="{StaticResource HeaderStackLayout}" Spacing="0" Padding="0">
+                            <Button x:Name="mnueBTN" Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  MuneIcon}" Clicked="mnueBTN_Clicked"/>
+                            <Label Style="{StaticResource Headerlable}" Text="Address" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  ShopPasktIcon}" HorizontalOptions="End"  FontSize="23" />
+                            <Button Style="{StaticResource FA.solid.ButtonStyle}" Text="{StaticResource  FullHeartIcon}" HorizontalOptions="End"  FontSize="23" />
+                        </StackLayout>
+                        <!--End nav bar StackLayout-->
+
+                        <!--Start heder Body lable -->
+                        <Label Style="{StaticResource Boldlable}" Text="Your Address!"  FontSize="25" Margin="0,30,0,-20" />
+                        <!--End heder Body lable-->
+
+                        <!--Start Center Content stacklayout-->
+                        <StackLayout Spacing="0"  VerticalOptions="CenterAndExpand">
+
+                            <!--start Grid Entry Address  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}" >
+                                <inputLayout:SfTextInputLayout  Hint="Address"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff"  Text="{Binding AddressDital ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Address-->
+
+                            <!--start Grid Entry City  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="City"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff"  Text="{Binding City ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry City-->
+
+                            <!--start Grid Entry State  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="State"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff"  Text="{Binding State ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry State-->
+
+                            <!--start Grid Entry Country  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Country"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff"  Text="{Binding Country ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Country-->
+
+                            <!--start Grid Entry Postal Code  -->
+                            <Grid Style="{StaticResource gridOneRowOneColme}">
+                                <inputLayout:SfTextInputLayout  Hint="Postal Code"  ContainerType="None" Grid.Column="0" Grid.Row="0" FocusedColor="#fff" UnfocusedColor="#fff"  Margin="30,0,25,0" >
+                                    <inputLayout:SfTextInputLayout.HintLabelStyle>
+                                        <inputLayout:LabelStyle FontSize="16" FontFamily="{StaticResource Key=RegularFont}"/>
+                                    </inputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                    <Entry TextColor="#fff"  Text="{Binding  ,Mode=TwoWay}"/>
+
+                                </inputLayout:SfTextInputLayout>
+                            </Grid>
+                            <!--End  Grid Entry Postal Code-->
+
+
+
+                        </StackLayout>
+                        <!--End Center Content stacklayout-->
+
+                        <!--Start Save Button-->
+                        <StackLayout VerticalOptions="End">
+                            <Button Style="{StaticResource bigButton}" Text="back" Command="{Binding Nav_To_CustomerProfilePage_Command}"/>
+                            <Button Style="{StaticResource bigButton}" Text="Save" Command="{Binding PutUserInformationCommand}"/>
+                        </StackLayout>
+                        <!--End Save Button-->
+
+                    </StackLayout>
+                    <!--End Content StackLayout-->
+
+                </Grid>
+                <!--End general grid-->
+
+            </StackLayout>
+            <!--End general stacklayout-->
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

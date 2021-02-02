@@ -1,0 +1,43 @@
+﻿@model AdminPanal.Models.CategoriesT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CategoriesT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategorieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategorieName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategorieNameAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategorieNameAR)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageID)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CategorieID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
